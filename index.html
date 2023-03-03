@@ -42,16 +42,16 @@
 
         
         // Change to full screen mode
-        var run_fullscreen = {
-            type: jsPsychFullscreen,
-            fullscreen_mode: true,
-        }
-        timeline.push(run_fullscreen);
+//         var run_fullscreen = {
+//             type: jsPsychFullscreen,
+//             fullscreen_mode: true,
+//         }
+//         timeline.push(run_fullscreen);
 
         
         var greeting = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "WELCOME to the experiment! press any key to start",
+            stimulus: "WELCOME",
         };
         timeline.push(greeting);
 
@@ -78,7 +78,7 @@
                     'You should draw the lines through the roads and without crossing over the buliding, and then click on Continue button to ' +
                     'to see the next pair of letters. Do not rush in delivering the items as your 30 seconds time will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png"></img>'
+                    '<img src="Venice_Map.png"></img>'
                 //post_trial_gap: 500 
             ],
             show_clickable_nav: true
