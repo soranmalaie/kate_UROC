@@ -50,7 +50,7 @@
         
         var greeting = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "Weelcoooooome!!!",
+            stimulus: "Welcome to the experiment! Press any key to start!",
         };
         timeline.push(greeting);
 
@@ -130,22 +130,22 @@
 //             },
 //             sketchpad-canvas
             
-            on_finish: function(data) {
-                // Get the canvas element
-                var canvas = document.getElementById('myCanvas');
+//             on_finish: function(data) {
+//                 // Get the canvas element
+//                 var canvas = document.getElementById('myCanvas');
                 
-                // Get the base64-encoded PNG data URL of the canvas
-                var dataURL = canvas.toDataURL('image/png');
+//                 // Get the base64-encoded PNG data URL of the canvas
+//                 var dataURL = canvas.toDataURL('image/png');
                 
-                // Generate a filename for the image based on the current trial and subject ID
-                var filename = `${subject_id}_${jsPsych.getProgress().current_trial_global}_image.png`;
+//                 // Generate a filename for the image based on the current trial and subject ID
+//                 var filename = `${subject_id}_${jsPsych.getProgress().current_trial_global}_image.png`;
                 
-                // Save the base64 data as a file using the jsPsychPipe plugin
-                jsPsychPipe.saveBase64Data('ZgNOhrfaWdyb', filename, dataURL);
+//                 // Save the base64 data as a file using the jsPsychPipe plugin
+//                 jsPsychPipe.saveBase64Data('ZgNOhrfaWdyb', filename, dataURL);
                 
-                // Update the trial data to store the filename instead of the base64 data
-                data.response = filename;
-                },
+//                 // Update the trial data to store the filename instead of the base64 data
+//                 data.response = filename;
+//                 },
             
         };
 
@@ -221,22 +221,22 @@
             },
 
             
-            on_finish: function(data) {
-                // Get the canvas element
-                var canvas = document.getElementById('myCanvas');
+//             on_finish: function(data) {
+//                 // Get the canvas element
+//                 var canvas = document.getElementById('myCanvas');
                 
-                // Get the base64-encoded PNG data URL of the canvas
-                var dataURL = canvas.toDataURL('image/png');
+//                 // Get the base64-encoded PNG data URL of the canvas
+//                 var dataURL = canvas.toDataURL('image/png');
                 
-                // Generate a filename for the image based on the current trial and subject ID
-                var filename = `${subject_id}_${jsPsych.getProgress().current_trial_global}_image.png`;
+//                 // Generate a filename for the image based on the current trial and subject ID
+//                 var filename = `${subject_id}_${jsPsych.getProgress().current_trial_global}_image.png`;
                 
-                // Save the base64 data as a file using the jsPsychPipe plugin
-                jsPsychPipe.saveBase64Data('ZgNOhrfaWdyb', filename, dataURL);
+//                 // Save the base64 data as a file using the jsPsychPipe plugin
+//                 jsPsychPipe.saveBase64Data('ZgNOhrfaWdyb', filename, dataURL);
                 
-                // Update the trial data to store the filename instead of the base64 data
-                data.response = filename;
-                },
+//                 // Update the trial data to store the filename instead of the base64 data
+//                 data.response = filename;
+//                 },
 
         };
         
@@ -419,7 +419,7 @@
 
         var Exp_Done = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "Experiment is done! Thank you for participating in our project.",
+            stimulus: "Experiment is done! Please press Enter and wait for your data to be saved.",
         };
         timeline.push(Exp_Done);
 
