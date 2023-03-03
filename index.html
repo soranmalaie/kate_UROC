@@ -31,14 +31,16 @@
 
         var tr_duration = 5000;
 
-
         //preloading the Venice map
-        var preload = {
-            type: jsPsychPreload,
-            images: ['img/Venice_Map.png'],
-        };
-        timeline.push(preload);
+        var venice_url = ['https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png']
 
+        // var preload = {
+        //     type: jsPsychPreload,
+        //     images: ['img/Venice_Map.png'],
+        // };
+        // timeline.push(preload);
+
+        
         // Change to full screen mode
         var run_fullscreen = {
             type: jsPsychFullscreen,
@@ -76,7 +78,7 @@
                     'You should draw the lines through the roads and without crossing over the buliding, and then click on Continue button to ' +
                     'to see the next pair of letters. Do not rush in delivering the items as your 30 seconds time will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="img/Venice_Map.png"></img>'
+                    '<img src="https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png"></img>'
                 //post_trial_gap: 500 
             ],
             show_clickable_nav: true
@@ -102,7 +104,7 @@
                 return Venice_prompt[Vencie_counter]
             },
                 prompt_location:'abovecanvas',
-            background_image: 'img/Venice_Map.png', 
+            background_image: 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png', 
             key_to_draw: ' ',
             finished_button_label: 'Continue',
             canvas_width: 1000,
@@ -181,7 +183,7 @@
             // '<p>Imagine there are four itmes at the red spot. Deliver the items to locations Y, M, F, Z, and L, one by one, ' +
             // '(simply draw five lines from the red spots to the locations, without crossing over the buildings)<p>',
             prompt_location:'abovecanvas',
-            background_image: 'img/Venice_Map.png', 
+            background_image: 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png', 
             key_to_draw: 'v',
             finished_button_label: 'Continue',
             canvas_width: 1000,
