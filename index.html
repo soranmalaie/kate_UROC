@@ -32,26 +32,25 @@
         var tr_duration = 5000;
 
         //preloading the Venice map
-//         var venice_url = ['https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png']
 
         var preload = {
             type: jsPsychPreload,
-            images: ['https://raw.githubusercontent.com/soranmalaie/UCM_CIS_Exp01/main/Venice_Map.png'],
+            images: ['Venice_Map.png'],
         };
         timeline.push(preload);
 
         
         // Change to full screen mode
-//         var run_fullscreen = {
-//             type: jsPsychFullscreen,
-//             fullscreen_mode: true,
-//         }
-//         timeline.push(run_fullscreen);
+        var run_fullscreen = {
+            type: jsPsychFullscreen,
+            fullscreen_mode: true,
+        }
+        timeline.push(run_fullscreen);
 
         
         var greeting = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "WEEEEEELCOMEEEEEE",
+            stimulus: "Welcome to the experiment. Press any key to start!",
         };
         timeline.push(greeting);
 
