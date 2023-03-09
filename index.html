@@ -369,39 +369,7 @@
         }
         
         if(condition == 1) { 
-                         
-            //showing instructions 
-            var let_set_instruction = {
-                type: jsPsychInstructions,
-                pages: [
-                //<p style="font-size:32px;width:800px;text-align: center">
-                //<p style="class=positivefeedback;font-size:24px;max-width:80%">
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
-                    '<p style="class=positivefeedback;font-size:24px">'+
-                    'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
-                    ' you will have 30 seconds to type in as many English words as you can that begin with those letters. ' + 
-                    'For example, for <b>lo...</b>, you can write down words such as love, low, lobster, lord,' +
-                    ' locomotion, and so on.<p>' + 
-                    '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
-                    ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
-                    'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
-                    'have negative points; so, if you doubt whether a word is acceptable, just type it in and continue ' +
-                    'searching for more words.',
-                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to five locations. To do this, simply draw five lines, one by one, from the red dot to the locations that will be mentioned above the map;'+
-                    ' To draw a line hold <b>v</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the buliding, and then click on Continue button ' +
-                    'to see the next pair of letters. Do not rush in delivering the items as your 30 seconds time to type in the words will begin only after ' + 
-                    'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
-                //post_trial_gap: 500 
-            ],
-            show_clickable_nav: true
-
-                      
-            };
-            timeline.push(let_set_instruction);
-        
+                                 
             var Venice1_prompt = [
             "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
             " by drawing five lines from the red dot:<p> <b>M, Z, N, F, K<b> <p>",
