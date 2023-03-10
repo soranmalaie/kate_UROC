@@ -48,6 +48,25 @@
             fullscreen_mode: true,
         }
         timeline.push(run_fullscreen);
+        //check the screen size
+        var screen_check = {
+            type: jsPsychBrowserCheck,
+            minimum_width: 1100,
+            minimum_height: 800,
+
+            exclusion_message: (data) => {
+                if(data.mobile){
+                    return '<p>You must use a desktop/laptop computer to participate in this experiment.</p>'+
+                    ' Please return the experiment to Prolific.</p>';
+                }
+                else{
+                    return '<p>The size of your browser window does not meet the requirements to participate in this experiment.'+
+                        ' Please return the experiment to Prolific.</p>'; 
+                }
+            }
+        };
+        timeline.push(screen_check);
+
 
         
         var greeting = {
@@ -56,6 +75,20 @@
         };
         timeline.push(greeting);
 
+        
+        var task1_done = {
+            type: jsPsychInstructions,
+            pages: [
+            //<p style="font-size:32px;width:800px;text-align: center">
+            //<p style="class=positivefeedback;font-size:24px;max-width:80%">
+            '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="class=positivefeedback;font-size:24px">'+
+                'The first task is finished. Whenver you are ready now, please click continue to start'+
+                ' the second half of the experiment with similar map and instruction but a different task.'
+        ],
+        show_clickable_nav: true
+                
+        };
         
         async function createExperiment(){
             const condition = await jsPsychPipe.getCondition("ZgNOhrfaWdyb");
@@ -332,6 +365,7 @@
         
 
                 timeline.push(functionOrder[0]);
+                timeline.push(task1_done);
                 timeline.push(functionOrder[1]);
             }
             if(functionOrder[0] == CRAP_procedures){
@@ -360,6 +394,7 @@
         
 
                 timeline.push(functionOrder[0]);
+                timeline.push(task1_done);
                 timeline.push(functionOrder[1]);
 
             }
@@ -643,6 +678,7 @@
         
 
                 timeline.push(functionOrder[0]);
+                timeline.push(task1_done);
                 timeline.push(functionOrder[1]);
             }
             if(functionOrder[0] == CRAP_procedures){
@@ -671,6 +707,7 @@
         
 
                 timeline.push(functionOrder[0]);
+                timeline.push(task1_done);
                 timeline.push(functionOrder[1]);
 
             }
