@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Letter_Set</title>
+        <title>Soran_FYP</title>
         <script src="https://unpkg.com/jspsych@7.3.1"></script>
         <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
         <script src="https://unpkg.com/@jspsych/plugin-sketchpad@1.0.3"></script>
@@ -11,35 +11,35 @@
         <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.1"></script>
         <script src="https://unpkg.com/@jspsych/plugin-fullscreen@1.1.1"></script>  
         <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>      
-        <script src="https://unpkg.com/@jspsych/plugin-html-audio-response@1.0.2"></script>
         <script src="https://unpkg.com/@jspsych/plugin-browser-check@1.0.1"></script>
-
+        <script src="https://unpkg.com/@jspsych/plugin-video-keyboard-response@1.1.1"></script>
 
         <link href="https://unpkg.com/jspsych@7.3.1/css/jspsych.css" rel="stylesheet" type="text/css" />
     </head>
     <body></body>
     <script>
 
+        //we need to add that only native english speakers can participate in this study!
+
         // experiment ID from DataPipe
         const expID = "ZgNOhrfaWdyb";
               
         // intialize jsPsych
         var jsPsych = initJsPsych({
-            on_finish: function() {
-                jsPsych.data.displayData();
-
-            }
+            // on_finish: function() {
+            //     jsPsych.data.displayData();
+            // }
         });
                 
         var timeline = [];
 
-        var tr_duration = 6000;
-
-
+        var tr_duration = 5000;
+        var venice_path = ['Venice_Map.png'];
+       
         //preloading the Venice map
         var preload = {
             type: jsPsychPreload,
-            images: ['Venice_Map.png'],
+            images: venice_path,
 
         };
         timeline.push(preload);
@@ -50,6 +50,7 @@
             fullscreen_mode: true,
         }
         timeline.push(run_fullscreen);
+
         //check the screen size
         var screen_check = {
             type: jsPsychBrowserCheck,
@@ -69,76 +70,306 @@
         };
         timeline.push(screen_check);
 
-
-        
+        // welcoming message
         var greeting = {
             type: jsPsychHtmlKeyboardResponse,
             stimulus: "Welcome to the experiment! press any key to start",
         };
         timeline.push(greeting);
 
+        var consent_form = {
+            type: jsPsychInstructions,
+            pages: [
+
+                '<p style="font-size:24px;font-weight:bold;">CONSENT TO PARTICIPATE IN A RESEARCH STUDY<p> ' +
+                '<p style="class=positivefeedback;font-size:18px">'+
+                '<b>Study Title: Reasoning and Learning</b><p>' + 
+                '<p><b>Investigator Name, Department, Telephone Number:</b><p>'+
+                'Prof. Tyler Marghetis, Cognitive and Information Sciences, 619-252-7798<p>'+
+                '<b>PURPOSE</b><p>'+
+                'You are being asked to participate in a research study conducted by Prof. Tyler Marghetis'+
+                ' at the University of California, Merced.  We hope to learn about how people reason about abstract concepts and complex topics.<p>'+
+                '<b>PROCEDURES</b><p>'+
+                'If you choose to be in the study, you will be asked to answer questions, solve puzzles, and/or describe your reasoning.'+
+                ' You will respond by writing, speaking, typing, and/or clicking on a computer screen. We may record your responses, '+
+                'including all interactions with the computer. These tasks allow us to better understand how people learn and reason.'+
+                ' This should take between 5 minutes and one hour. The study will be completed either in-person or online on your computer.'+
+                ' You can stop the study at any time. Approximately 5,000 people will participate in this study.<p>'+
+                '<b>ALTERNATIVES </b><p>'+
+                'If you are receiving extra credit in connection with or as part of a course, your instructor must offer you other options for obtaining credit, if you decline to participate.<p>'+
+                '<b>RISKS</b><p>'+
+                'Participants should generally not experience any risks beyond those of daily living and computer use. One potential risk is frustration when trying to solve more difficult reasoning problems.<p>'+
+                '<b>BENEFITS</b><p>'+
+                'It is possible that you will not benefit directly by participating in this study. <p>'+
+                '<b>CONFIDENTIALITY</b><p>'+
+                'Absolute confidentiality cannot be guaranteed, since research documents are not protected from subpoena. We will not ask for any identifiable information. The data collected in this study could be used for future research studies or distributed to other investigators for future research studies without additional informed consent from the subject or legally authorized representative. The information collected during this study may be presented at conferences, published in scientific journals, and shared with other researchers. Identifiable information will be removed before the data is shared. Individual privacy will be maintained and identities will not be disclosed. <p>'+
+                '<b>COSTS/COMPENSATION</b><p>'+
+                'If you are volunteering, you will receive a small token gift as a sign of our appreciation. If you are participating in return for payment, you will be compensated approximately $8/hour for participating in this study. If you are participating in return for course credit, you will be compensated through the SONA system with course credit (0.5 credit per half-hour), even if you do not complete the study. There is no cost to you beyond the time and effort required to complete the procedure(s) described above.<p>'+
+                '<b>RIGHT TO REFUSE OR WITHDRAW</b><p>'+
+                'Participation is completely voluntary.  You may refuse to participate in this study.  You may change your mind about being in the study and quit after the study has started.<p>'+
+                '<b>QUESTIONS</b><p>'+
+                'If you have any questions about this research project please contact Prof. Tyler Marghetis, who will answer them at 619-252-7798 or tmarghetis@ucmerced.edu<p>'+
+                'For questions about your rights while taking part in this study call the Office of Research at (209) 228-4613 or write to the Office of Research,5200 North Lake Rd, UC Merced, Merced, CA 95343.  The Office of Research will inform the Institutional Review Board which is a group of people who review the research to protect your rights.  If you have any complaints or concerns about this study, you may address them to Rose Scott, Chair of the IRB at (209) 228-4362, irbchair@ucmerced.edu.   <p>'+
+                '<b>CONSENT</b><p>'+
+                '<b>By choosing to continue to the next screen, you indicate that you have decided to participate as a research subject and that you have read and understood the information provided above. You may save a copy of this form to keep for your records. </b><p>'
+            ],
+            show_clickable_nav: true, 
+            button_label_next: 'Agree & Continue' 
+        };
+        timeline.push(consent_form)
+
         
+        var let_set = [
+                        "<b>ab</b>",
+                        "<b>da</b>",
+                        // "<b>ea</b>",
+                        // "<b>gl</b>",
+                        // "<b>gr</b>",
+                        // "<b>le</b>",
+                        // "<b>mi</b>",
+                        // "<b>pr</b>",
+                        // "<b>st</b>",
+                        // "<b>zo</b>",							
+                    ];
+        var shuffled_let_set = jsPsych.randomization.repeat(let_set, 1);
+   
+        var CRAP_set = [
+                        "<b>pie   luck   belly</b>",
+                        "<b>opera   hand   dish</b>",
+                        // "<b>dust   cereal   fish</b>",
+                        // "<b>light   birthday   stick</b>",
+                        // "<b>palm   shoe   house</b>",
+                        // "<b>sage   paint   hair</b>",
+                        // "<b>french   car   shoe</b>",
+                        // "<b>carpet   alert   ink</b>",
+                        // "<b>mouse   bear   sand</b>",
+                        // "<b>show   life   row</b>",
+                    ];
+        var shuffled_CRAP_set = jsPsych.randomization.repeat(CRAP_set, 1);
+
+        var Venice1_prompt_linear = [
+
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>E<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>I<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>L<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>Y<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>B<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>R<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>H<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>V<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>D<b> <p>",
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the follwoing location"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>T<b> <p>",
+        ];
+
+                                 
+        var Venice1_prompt_diverse = [
+            "<p>Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>M, Z, N, F, K<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>C, D, U, B, P<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>A, M, R, T, F<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>U, V, Z, N, K<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>E, J, C, Y, P<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>Z, A, B, I, L<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>N, P, T, U, V<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>R, I, A, F, D<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>Y, M, J, Z, E<b> <p>",
+            "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
+                " (to draw a line hold z and move your mouse cursor):<p> <b>K, A, P, N, C<b> <p>",
+        ];
+
+            
+        var let_set_instruction_linear = {
+            type: jsPsychInstructions,
+            pages: [
+
+                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="class=positivefeedback;font-size:24px">'+
+                'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
+                ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
+                'For example, for <b>lo</b>, you can write down words such as love, low, lobster, lord,' +
+                ' locomotion, and so on.<p>' + 
+                '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
+                ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
+                'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
+                'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
+                'searching for more words.',
+                '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
+                '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
+                ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>continue</b> button ' +
+                'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
+                '<img src="Venice_Map.png"></img>'
+            ],
+            show_clickable_nav: true      
+        };
+
+        var let_set_instruction_diverse = {
+            type: jsPsychInstructions,
+            pages: [                
+                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="class=positivefeedback;font-size:24px">'+
+                'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
+                ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
+                'For example, for <b>lo</b>, you can write down words such as love, low, lobster, lord,' +
+                ' locomotion, and so on.<p>' + 
+                '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
+                ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
+                'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
+                'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
+                'searching for more words.',
+                '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
+                '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
+                ' from the red dot to the locations that will be mentioned above the map;'+
+                ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
+                'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
+                '<img src="Venice_Map.png"></img>'
+            ],
+        show_clickable_nav: true                  
+        };
+
+            
+        var CRAP_instruction_linear = {
+            type: jsPsychInstructions,
+            pages: [
+                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="class=positivefeedback;font-size:24px">'+
+                'In this task, you will see three words and your job is to find the fourth word that makes a common'+
+                ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
+                +' fourth word that makes a common two-word phrase with each of them is “band” — as in band-aid, rubber'+
+                ' band, and bandwagon. Another example is “cream    skate    water”.   What word makes a common two-word '+
+                'phrase with each of them? It is ice — as in, ice cream, ice skate, and ice water. '+
+                '<p style="class=positivefeedback;font-size:24px">'+
+                'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
+                ' Please type your solution and hit Enter right away.',
+                '<p style="font-size:24px;">Before each trial, you will be shown the following map'+
+                ' in which you need to deliver some items from the starting point ' + 
+                '(the red dot on the map) to a location. To do this, simply draw five lines, one by one,'+
+                ' from the red dot to the location that will be mentioned above the map;'+
+                ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                'You should draw the lines through the roads and without crossing over the bulidings,'+
+                ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
+                ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
+                '<img src="Venice_Map.png"></img>'
+            ],
+        show_clickable_nav: true
+                    
+        };
+
+        var CRAP_instruction_diverse = {
+            type: jsPsychInstructions,
+            pages: [
+                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="class=positivefeedback;font-size:24px">'+
+                'In this task, you will see three words and your job is to find the fourth word that makes a common'+
+                ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
+                +' fourth word that makes a common two-word phrase with each of them is “band” — as in band-aid, rubber'+
+                ' band, and bandwagon. Another example is “cream    skate    water”.   What word makes a common two-word '+
+                'phrase with each of them? It is ice — as in, ice cream, ice skate, and ice water. '+
+                '<p style="class=positivefeedback;font-size:24px">'+
+                'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
+                ' Please type your solution and hit Enter right away.',
+                '<p style="font-size:24px;">Before each trial, you will be shown the following map'+
+                ' in which you need to deliver some items from the starting point ' + 
+                '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
+                ' from the red dot to the locations that will be mentioned above the map;'+
+                ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                'You should draw the lines through the roads and without crossing over the bulidings,'+
+                ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
+                ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
+                '<img src="Venice_Map.png"></img>'
+            ],
+        show_clickable_nav: true                      
+        };
+
+        // between task message
         var task1_done = {
             type: jsPsychInstructions,
             pages: [
-            //<p style="font-size:32px;width:800px;text-align: center">
-            //<p style="class=positivefeedback;font-size:24px;max-width:80%">
             '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
                 '<p style="class=positivefeedback;font-size:24px">'+
-                'The first task is finished. Whenver you are ready now, please click continue to start'+
+                'The first task is finished. Whenver you are ready now, please click Next to start'+
                 ' the second half of the experiment with similar map and instruction but a different task.'
-        ],
-        show_clickable_nav: true
-                
+            ],
+        show_clickable_nav: true,
+
+        on_start: function() {
+            jsPsych.pluginAPI.clearAllTimeouts();
+        },
+
+        };
+
+        var video_instruction_linear = {
+            type: jsPsychVideoKeyboardResponse,
+            prompt: "Reminder: Hold <b>z</b> on your keyboard to draw. <P> After the video finished, hit <b>Enter</b> to start the task.",
+            stimulus: [
+                'Linear_final.mp4'
+            ],
+            width: window.innerWidth,
+            height: window.innerHeight,
+            // choices: "Enter",
+            // trial_ends_after_video: true,
+            // controls: true,
+            response_allowed_while_playing: false,
+        };
+
+        var video_instruction_diverse = {
+            type: jsPsychVideoKeyboardResponse,
+            prompt: "Reminder: Hold <b>z</b> on your keyboard to draw. <P> After the video finished, hit <b>Enter</b> to start the task.",
+            stimulus: [
+                'Diverse_final.mp4'
+            ],
+            width: window.innerWidth,
+            height: window.innerHeight,
+            // choices: "Enter",
+            // trial_ends_after_video: true,
+            // controls: true,
+            response_allowed_while_playing: false,
         };
         
         async function createExperiment(){
             const condition = await jsPsychPipe.getCondition("ZgNOhrfaWdyb");
-            if(condition == 0) {
                          
-            var Venice1_prompt = [
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>E<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>I<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>L<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>Y<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>B<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>R<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>H<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>V<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>D<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing location,"+
-            " by drawing five lines from the red dot:<p> <b>T<b> <p>",
-            ]
+
+            //linear condition 'if'
+            if(condition == 0) {
+
             var Venice1_counter = -1;
         
             var Venice1_task = {
             type: jsPsychSketchpad,
             prompt: function(){
                 Venice1_counter +=1;
-                return Venice1_prompt[Venice1_counter]
+                return Venice1_prompt_linear[Venice1_counter]
             },
             prompt_location:'abovecanvas',
-            background_image: 'Venice_Map.png',
-            // {
-            //     path: 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png',
-            //     width: window.innerWidth - 100,
-            //     height: window.innerHeight - 100,
-            // }, 
-            key_to_draw: 'v',
+            background_image: venice_path,
+            key_to_draw: 'z',
             finished_button_label: 'Continue',
             canvas_width: 1080,
             canvas_height: 788,
-            // canvas_width:  window.innerWidth - 350,
-            // canvas_height: window. innerHeight - 120 ,
             canvas_border_width: 3,
             save_strokes: false,
             show_clear_button: false,
@@ -147,48 +378,8 @@
                 let_counter += 1;
                 jsPsych.pluginAPI.clearAllTimeouts();
             },
-
-            // on_load: function(){
-            //     var canvas = document.getElementById('jspsych-sketched-canvas');
-            //     var backgroundImage = new Image();
-            //     backgroundImage.src = 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png';
-            //     backgroundImage.onload = function(){
-            //         var ctx = canvas.getContext('2d');
-            //         ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-            //     }
-            // }
-            
-            // on_load: function() {
-            //     // get the canvas element
-            //     var canvas = document.getElementById('jspsych-survey-visualization');
-            //     // set the background image to the size of the canvas
-            //     canvas.style.backgroundSize = canvas.width + 'px ' + canvas.height + 'px';
-            // }
-
-            // on_load: function() {
-            //     // get the canvas element
-            //     var canvas = document.getElementById('jspsych-survey-visualization');
-            //     // set the background image to the middle of the canvas
-            //     canvas.style.backgroundSize = 'contain';
-            //     canvas.style.backgroundRepeat = 'no-repeat';
-            //     canvas.style.backgroundPosition = 'center';
-            //     canvas.style.backgroundImage = 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png';
-            // }
-            
             };
 
-            var let_set = ["<b>ab</b>",
-                        "<b>da</b>",
-                        "<b>ea</b>",
-                        "<b>gl</b>",
-                        "<b>gr</b>",
-                        "<b>le</b>",
-                        "<b>mi</b>",
-                        "<b>pr</b>",
-                        "<b>st</b>",
-                        "<b>zo</b>",							
-                    ];
-            var shuffled_let_set = jsPsych.randomization.repeat(let_set, 1);
             var let_counter = -1;
 
             var let_set_task = {
@@ -199,11 +390,11 @@
             autofocus: 'test-resp-box',
             button_label: "Enter",
             timeline: [
-                {html: '<p> <input name="let_respnose" type="text" id="test-resp-box" /></p>',},
+                {html: '<p> <input name="let_linear" type="text" id="test-resp-box" /></p>',},
                 ],
             sample: {
                 type: 'fixed-repetitions',
-                size:  20
+                size:  25
             },
             }
         
@@ -212,7 +403,6 @@
             repetitions: let_set.length,
             
             on_start: function() {
-                //jsPsych.pluginAPI.clearAllTimeouts();
                 jsPsych.pluginAPI.setTimeout(function() {
                     jsPsych.endCurrentTimeline();
                     jsPsych.finishTrial({Response: "timeout"});
@@ -220,31 +410,21 @@
             }
             }
 
-
             var Venice2_counter = -1;
-
         
             var Venice2_task = {
             type: jsPsychSketchpad,
             prompt: function(){
                 Venice2_counter +=1;
-                return Venice1_prompt[Venice2_counter]
+                return Venice1_prompt_linear[Venice2_counter]
             },
-            // '<p>Imagine there are four itmes at the red spot. Deliver the items to locations Y, M, F, Z, and L, one by one, ' +
-            // '(simply draw five lines from the red spots to the locations, without crossing over the buildings)<p>',
+
             prompt_location:'abovecanvas',
-            background_image: 'Venice_Map.png',
-            // {
-            //     path: 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png',
-            //     width: window.innerWidth - 100,
-            //     height: window.innerHeight - 100,
-            // }, 
-            key_to_draw: 'v',
+            background_image: venice_path,
+            key_to_draw: 'z',
             finished_button_label: 'Continue',
             canvas_width: 1080,
             canvas_height: 788,
-            // canvas_width:  window.innerWidth - 350,
-            // canvas_height: window. innerHeight - 120 ,
             canvas_border_width: 3,
             save_strokes: false,
             show_clear_button: false,
@@ -252,50 +432,8 @@
             on_start: function() {
                 jsPsych.pluginAPI.clearAllTimeouts();
             },
-            
-            // on_load: function() {
-            //     // get the canvas element
-            //     var canvas = document.getElementById('jspsych-survey-visualization');
-            //     // set the background image to the size of the canvas
-            //     canvas.style.backgroundSize = canvas.width + 'px ' + canvas.height + 'px';
-            // }
-            
-            // on_load: function(){
-            //     var canvas = document.getElementById('jspsych-sketched-canvas');
-            //     var backgroundImage = new Image();
-            //     backgroundImage.src = 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png';
-            //     backgroundImage.onload = function(){
-            //         var ctx = canvas.getContext('2d');
-            //         ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-            //     }
-            // }
-
-            // on_load: function() {
-            //     // get the canvas element
-            //     var canvas = document.getElementById('jspsych-survey-visualization');
-            //     // set the background image to the middle of the canvas
-            //     canvas.style.backgroundSize = 'contain';
-            //     canvas.style.backgroundRepeat = 'no-repeat';
-            //     canvas.style.backgroundPosition = 'center';
-            //     canvas.style.backgroundImage = 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png';
-            // }
-            
-        };
+            };
         
-   
-            var CRAP_set = ["<b>pie luck    belly</b>",
-                        "<b>opera	hand	dish</b>",
-                        "<b>dust	cereal	fish</b>",
-                        "<b>light	birthday	stick</b>",
-                        "<b>palm	shoe	house</b>",
-                        "<b>sage	paint	hair</b>",
-                        "<b>french	car	shoe</b>",
-                        "<b>carpet	alert	ink</b>",
-                        "<b>mouse	bear	sand</b>",
-                        "<b>show	life	row</b>",
-                        ];
-
-            var shuffled_CRAP_set = jsPsych.randomization.repeat(CRAP_set, 1);
             var CRAP_counter = -1;
 
             var CRAP_set_task = {
@@ -305,7 +443,7 @@
                 return shuffled_CRAP_set[CRAP_counter]},
 
             html: 
-                '<p> <input name="CRAP_response" type="text" id="test-resp-box"  style="width:200px;height:50px;" /></p>',
+                '<p> <input name="CRAP_linear" type="text" id="test-resp-box"  style="width:200px;height:50px;" /></p>',
 
             autofocus: 'test-resp-box',
             button_label: "Enter",
@@ -315,7 +453,6 @@
                 
                 jsPsych.pluginAPI.setTimeout(function() {
                 jsPsych.finishTrial({Response: "timeout"});
-                    // jsPsych.endCurrentTimeline();
                 }, tr_duration);
             },                            
             };
@@ -334,123 +471,45 @@
             
             // Push the functions into the timeline in the randomly determined order
             if(functionOrder[0] == let_set_procedures){
-            //showing instructions 
-            var let_set_instruction = {
-                type: jsPsychInstructions,
-                pages: [
-                //<p style="font-size:32px;width:800px;text-align: center">
-                //<p style="class=positivefeedback;font-size:24px;max-width:80%">
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
-                    '<p style="class=positivefeedback;font-size:24px">'+
-                    'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
-                    ' you will have 30 seconds to type in as many English words as you can that begin with those letters. ' + 
-                    'For example, for <b>lo...</b>, you can write down words such as love, low, lobster, lord,' +
-                    ' locomotion, and so on.<p>' + 
-                    '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
-                    ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
-                    'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
-                    'have negative points; so, if you doubt whether a word is acceptable, just type it in and continue ' +
-                    'searching for more words.',
-                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
-                    ' To draw a line hold <b>v</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the buliding, and then click on Continue button ' +
-                    'to see the next pair of letters. Do not rush in delivering the items as your 30 seconds time to type in the words will begin only after ' + 
-                    'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
-                //post_trial_gap: 500 
-            ],
-            show_clickable_nav: true
-                      
-            };
-            timeline.push(let_set_instruction);
-        
 
-                timeline.push(functionOrder[0]);
-                timeline.push(task1_done);
-                timeline.push(functionOrder[1]);
+            timeline.push(let_set_instruction_linear);
+            timeline.push(video_instruction_linear);
+            timeline.push(functionOrder[0]);
+            timeline.push(task1_done);
+            timeline.push(CRAP_instruction_linear);
+            timeline.push(functionOrder[1]);
             }
+            
             if(functionOrder[0] == CRAP_procedures){
-            //showing instructions 
-            var let_set_instruction = {
-                type: jsPsychInstructions,
-                pages: [
-                //<p style="font-size:32px;width:800px;text-align: center">
-                //<p style="class=positivefeedback;font-size:24px;max-width:80%">
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
-                    '<p style="class=positivefeedback;font-size:24px">'+
-                    'CRAP instrucitons!',
-                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
-                    ' To draw a line hold <b>v</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the buliding, and then click on Continue button ' +
-                    'to see the next pair of letters. Do not rush in delivering the items as your 30 seconds time to type in the words will begin only after ' + 
-                    'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
-                //post_trial_gap: 500 
-            ],
-            show_clickable_nav: true
-                      
-            };
-            timeline.push(let_set_instruction);
-        
 
-                timeline.push(functionOrder[0]);
-                timeline.push(task1_done);
-                timeline.push(functionOrder[1]);
+            timeline.push(CRAP_instruction_linear);
+            timeline.push(video_instruction_linear);
+            timeline.push(functionOrder[0]);
+            timeline.push(task1_done);
+            timeline.push(let_set_instruction_linear);
+            timeline.push(functionOrder[1]);
 
             }
 
-
-            // jsPsych.run(timeline)
         }
-        
+
+
+        //diverse condition 'if'
         if(condition == 1) { 
-                                 
-            var Venice1_prompt = [
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>M, Z, N, F, K<b> <p>",
-            "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>C, D, U, B, P<b> <p>",
-                "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>A, M, R, T, F<b> <p>",
-                "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>U, V, Z, N, K<b> <p>",
-                "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>E, J, C, Y, P<b> <p>",
-                "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>Z, A, B, I, L<b> <p>",
-                "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>N, P, T, U, V<b> <p>",
-                "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>R, I, A, F, D<b> <p>",
-                "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>Y, M, J, Z, E<b> <p>",
-                "Imagine there are five items on the red dot. Dilever the items from the red spot to the follwoing locations,"+
-            " by drawing five lines from the red dot:<p> <b>K, A, P, N, C<b> <p>",
- 
-            ]
             var Venice1_counter = -1;
-        
+
             var Venice1_task = {
             type: jsPsychSketchpad,
             prompt: function(){
                 Venice1_counter +=1;
-                return Venice1_prompt[Venice1_counter]
+                return Venice1_prompt_diverse[Venice1_counter]
             },
             prompt_location:'abovecanvas',
-            background_image: 'Venice_Map.png',
-            // {
-            //     path: 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png',
-            //     width: window.innerWidth - 100,
-            //     height: window.innerHeight - 100,
-            // }, 
-            key_to_draw: 'v',
+            background_image: venice_path,
+            key_to_draw: 'z',
             finished_button_label: 'Continue',
             canvas_width: 1080,
             canvas_height: 788,
-            // canvas_width:  window.innerWidth - 350,
-            // canvas_height: window. innerHeight - 120 ,
             canvas_border_width: 3,
             save_strokes: false,
             show_clear_button: false,
@@ -459,49 +518,8 @@
                 let_counter += 1;
                 jsPsych.pluginAPI.clearAllTimeouts();
             },
-
-            // on_load: function(){
-            //     var canvas = document.getElementById('jspsych-sketched-canvas');
-            //     var backgroundImage = new Image();
-            //     backgroundImage.src = 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png';
-            //     backgroundImage.onload = function(){
-            //         var ctx = canvas.getContext('2d');
-            //         ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-            //     }
-            // }
-            
-            // on_load: function() {
-            //     // get the canvas element
-            //     var canvas = document.getElementById('jspsych-survey-visualization');
-            //     // set the background image to the size of the canvas
-            //     canvas.style.backgroundSize = canvas.width + 'px ' + canvas.height + 'px';
-            // }
-
-            // on_load: function() {
-            //     // get the canvas element
-            //     var canvas = document.getElementById('jspsych-survey-visualization');
-            //     // set the background image to the middle of the canvas
-            //     canvas.style.backgroundSize = 'contain';
-            //     canvas.style.backgroundRepeat = 'no-repeat';
-            //     canvas.style.backgroundPosition = 'center';
-            //     canvas.style.backgroundImage = 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png';
-            // }
-            
             };
 
-            var let_set = ["<b>ab</b>",
-                        "<b>da</b>",
-                        "<b>ea</b>",
-                        "<b>gl</b>",
-                        "<b>gr</b>",
-                        "<b>le</b>",
-                        "<b>mi</b>",
-                        "<b>pr</b>",
-                        "<b>st</b>",
-                        "<b>zo</b>",							
-
-                    ];
-            var shuffled_let_set = jsPsych.randomization.repeat(let_set, 1);
             var let_counter = -1;
 
             var let_set_task = {
@@ -512,11 +530,11 @@
             autofocus: 'test-resp-box',
             button_label: "Enter",
             timeline: [
-                {html: '<p> <input name="let_respnose" type="text" id="test-resp-box" /></p>',},
+                {html: '<p> <input name="let_diverse" type="text" id="test-resp-box" /></p>',},
                 ],
             sample: {
                 type: 'fixed-repetitions',
-                size:  20
+                size:  25
             },
             }
         
@@ -525,7 +543,6 @@
             repetitions: let_set.length,
             
             on_start: function() {
-                //jsPsych.pluginAPI.clearAllTimeouts();
                 jsPsych.pluginAPI.setTimeout(function() {
                     jsPsych.endCurrentTimeline();
                     jsPsych.finishTrial({Response: "timeout"});
@@ -533,31 +550,20 @@
             }
             }
 
-
             var Venice2_counter = -1;
 
-        
             var Venice2_task = {
             type: jsPsychSketchpad,
             prompt: function(){
                 Venice2_counter +=1;
-                return Venice1_prompt[Venice2_counter]
+                return Venice1_prompt_diverse[Venice2_counter]
             },
-            // '<p>Imagine there are four itmes at the red spot. Deliver the items to locations Y, M, F, Z, and L, one by one, ' +
-            // '(simply draw five lines from the red spots to the locations, without crossing over the buildings)<p>',
             prompt_location:'abovecanvas',
-            background_image: 'Venice_Map.png',
-            // {
-            //     path: 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png',
-            //     width: window.innerWidth - 100,
-            //     height: window.innerHeight - 100,
-            // }, 
-            key_to_draw: 'v',
+            background_image: venice_path,
+            key_to_draw: 'z',
             finished_button_label: 'Continue',
             canvas_width: 1080,
             canvas_height: 788,
-            // canvas_width:  window.innerWidth - 350,
-            // canvas_height: window. innerHeight - 120 ,
             canvas_border_width: 3,
             save_strokes: false,
             show_clear_button: false,
@@ -565,50 +571,8 @@
             on_start: function() {
                 jsPsych.pluginAPI.clearAllTimeouts();
             },
-            
-            // on_load: function() {
-            //     // get the canvas element
-            //     var canvas = document.getElementById('jspsych-survey-visualization');
-            //     // set the background image to the size of the canvas
-            //     canvas.style.backgroundSize = canvas.width + 'px ' + canvas.height + 'px';
-            // }
-            
-            // on_load: function(){
-            //     var canvas = document.getElementById('jspsych-sketched-canvas');
-            //     var backgroundImage = new Image();
-            //     backgroundImage.src = 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png';
-            //     backgroundImage.onload = function(){
-            //         var ctx = canvas.getContext('2d');
-            //         ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-            //     }
-            // }
-
-            // on_load: function() {
-            //     // get the canvas element
-            //     var canvas = document.getElementById('jspsych-survey-visualization');
-            //     // set the background image to the middle of the canvas
-            //     canvas.style.backgroundSize = 'contain';
-            //     canvas.style.backgroundRepeat = 'no-repeat';
-            //     canvas.style.backgroundPosition = 'center';
-            //     canvas.style.backgroundImage = 'https://raw.githubusercontent.com/soranmalaie/black-sky/main/Venice_Map.png';
-            // }
-            
         };
         
-   
-        var CRAP_set = ["<b>pie luck    belly</b>",
-                        "<b>opera	hand	dish</b>",
-                        "<b>dust	cereal	fish</b>",
-                        "<b>light	birthday	stick</b>",
-                        "<b>palm	shoe	house</b>",
-                        "<b>sage	paint	hair</b>",
-                        "<b>french	car	shoe</b>",
-                        "<b>carpet	alert	ink</b>",
-                        "<b>mouse	bear	sand</b>",
-                        "<b>show	life	row</b>",
-                        ];
-
-            var shuffled_CRAP_set = jsPsych.randomization.repeat(CRAP_set, 1);
             var CRAP_counter = -1;
 
             var CRAP_set_task = {
@@ -618,7 +582,7 @@
                 return shuffled_CRAP_set[CRAP_counter]},
 
             html: 
-                '<p> <input name="CRAP_response" type="text" id="test-resp-box"  style="width:200px;height:50px;" /></p>',
+                '<p> <input name="CRAP_diverse" type="text" id="test-resp-box"  style="width:200px;height:50px;" /></p>',
 
             autofocus: 'test-resp-box',
             button_label: "Enter",
@@ -628,12 +592,9 @@
                 
                 jsPsych.pluginAPI.setTimeout(function() {
                 jsPsych.finishTrial({Response: "timeout"});
-                    // jsPsych.endCurrentTimeline();
                 }, tr_duration);
             },                            
             };
-
-       
 
             var CRAP_procedures = {
             
@@ -647,78 +608,49 @@
             
             // Push the functions into the timeline in the randomly determined order
             if(functionOrder[0] == let_set_procedures){
-            //showing instructions 
-            var let_set_instruction = {
-                type: jsPsychInstructions,
-                pages: [
-                //<p style="font-size:32px;width:800px;text-align: center">
-                //<p style="class=positivefeedback;font-size:24px;max-width:80%">
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
-                    '<p style="class=positivefeedback;font-size:24px">'+
-                    'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
-                    ' you will have 30 seconds to type in as many English words as you can that begin with those letters. ' + 
-                    'For example, for <b>lo...</b>, you can write down words such as love, low, lobster, lord,' +
-                    ' locomotion, and so on.<p>' + 
-                    '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
-                    ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
-                    'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
-                    'have negative points; so, if you doubt whether a word is acceptable, just type it in and continue ' +
-                    'searching for more words.',
-                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
-                    ' To draw a line hold <b>v</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the buliding, and then click on Continue button ' +
-                    'to see the next pair of letters. Do not rush in delivering the items as your 30 seconds time to type in the words will begin only after ' + 
-                    'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
-                //post_trial_gap: 500 
-            ],
-            show_clickable_nav: true
-                      
-            };
-            timeline.push(let_set_instruction);
-        
 
-                timeline.push(functionOrder[0]);
-                timeline.push(task1_done);
-                timeline.push(functionOrder[1]);
+            timeline.push(let_set_instruction_diverse);
+            timeline.push(video_instruction_diverse);
+            timeline.push(functionOrder[0]);
+            timeline.push(task1_done);
+            timeline.push(CRAP_instruction_diverse);
+            timeline.push(functionOrder[1]);
             }
+
             if(functionOrder[0] == CRAP_procedures){
-            //showing instructions 
-            var let_set_instruction = {
-                type: jsPsychInstructions,
-                pages: [
-                //<p style="font-size:32px;width:800px;text-align: center">
-                //<p style="class=positivefeedback;font-size:24px;max-width:80%">
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
-                    '<p style="class=positivefeedback;font-size:24px">'+
-                    'CRAP instrucitons!',
-                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
-                    ' To draw a line hold <b>v</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the buliding, and then click on Continue button ' +
-                    'to see the next pair of letters. Do not rush in delivering the items as your 30 seconds time to type in the words will begin only after ' + 
-                    'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
-                //post_trial_gap: 500 
-            ],
-            show_clickable_nav: true
-                      
-            };
-            timeline.push(let_set_instruction);
-        
 
-                timeline.push(functionOrder[0]);
-                timeline.push(task1_done);
-                timeline.push(functionOrder[1]);
+            timeline.push(CRAP_instruction_diverse);
+            timeline.push(video_instruction_diverse);
+            timeline.push(functionOrder[0]);
+            timeline.push(task1_done);
+            timeline.push(let_set_instruction_diverse);
+            timeline.push(functionOrder[1]);
 
             }
 
-            // jsPsych.run(timeline)    
         }
 
 
-        
+        // between task message
+        var tasks_finished = {
+            type: jsPsychInstructions,
+            pages: [
+            '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="class=positivefeedback;font-size:24px">'+
+                'Great! The experiment is almost done! Next, you will see a list of names. Some of them are authors of books or novels, and some are not.'+
+                ' Please put a check mark next to the names that you know <b>for sure</b> are authors. There is a penalty '+
+                'for guessing, so you should check only those names about which you are absolutely certain.'
+            ],
+            show_clickable_nav: true,
+
+            on_start: function() {
+                jsPsych.pluginAPI.clearAllTimeouts();
+            },
+
+            };
+        timeline.push(tasks_finished);
+
+        //Author Recognition Test        
         var ART = {
             type: jsPsychSurvey,
             pages:
@@ -767,97 +699,114 @@
  
                     ],
                     columns: 5,
-                    name: 'Author', 
-                    // correct_response: "Soran",
-                     
+                    name: 'Author',                      
                 }
               ]
             ],
-            
-            on_start: function() {
-            jsPsych.pluginAPI.clearAllTimeouts();
-            }
-            }
-            timeline.push(ART);
+        }
+        timeline.push(ART);
 
             
             //Collecting demographic information
-            var demographic_info = {
+        var demographic_info = {
             type: jsPsychSurvey,
             pages: [
                 [
                     {
                         type: 'multi-choice',
-                        prompt: "Gender", 
-                        options: ['Male','Female','Prefer not to say'],
-                        name: 'Gender', 
-                        // required: true,
-                    },
-                    {
-                        type: 'text',
-                        prompt: "How old are you?",
-                        name: 'age', 
-                        textbox_columns: 5,
-                        // required: true,
-                    },
-                    {
-                        type: 'multi-choice',
-                        prompt: "What is your dominant hand",
-                        options:['Right', 'Left', 'Ambidextrous (Equally well with both hands)'], 
-                        name: 'Handedness', 
-                        // required: true,
-                    },
-                ],
-                [
-                    {
-                        type: 'multi-choice',
-                        prompt: "Are you native in English langauge?", 
+                        prompt: "Are you a native English Speaker?", 
                         options: ['Yes','No'],
                         name: 'Langauge',
                         // required: true,
                     },
                     {
                         type: 'text',
-                        prompt: 'Do you know another language? If yes, please rate it from 0 to 10; with 10 being the heighest',
-                        placeholder: 'Example: Spanish (7)',
+                        prompt: 'Do you know another language? If yes, please rate it from 0 to 10; with 10 being the highest fluency',
+                        placeholder: 'Example: Spanish (8)',
                         name: 'SecondLanguage'
                     },
                     {
+                        type: 'text',
+                        prompt: "How old are you in years?",
+                        name: 'age', 
+                        textbox_columns: 5,
+                        // required: true,
+                    },
+                    {
+                        type: 'multi-choice',
+                        prompt: "What is your dominant hand?",
+                        options:[
+                            'Right', 'Left', 'Ambidextrous (Equally well with both hands)'
+                        ], 
+                        name: 'Handedness', 
+                        // required: true,
+                    },
+                ],
+
+                [
+                    {
                         type: 'multi-select',
-                        prompt: 'What is your race? you can select more than one',
-                        options:['White', 'Aferican-American', 'Spanish', 'Asian', 'Other (or prefer not to say)'],
+                        prompt: 'What is your race? (choose all that apply) ',
+                        options:[
+                            'White', 'Spanish, Hispanic, or Latino', 'Black or African American', 'American Indian or Alaska Native',
+                            'Asian','Native Hawaiian or Pacific Islander','Not listed (free response)'
+                        ],
                         name: 'Race',
 
                     },
-                ]
+                    {
+                        type: 'multi-choice',
+                        prompt: "Which of the following best describes your sexual orientation?", 
+                        options: [
+                            'straight (heterosexual)','gay or lesbian (homosexual)', 'bisexual', 'queer',
+                            'asexual', 'not listed (free response)', 'prefer not to respond' 
+                        ],
+                        name: 'sexual orientation', 
+                        // required: true,
+                    },
+                    {
+                        type: 'multi-choice',
+                        prompt: "Which of the following best describes your gender identity? ", 
+                        options: [
+                            'man', 'woman', 'non-binary', 'transgender woman', 'transgender man', 'genderqueer',
+                            'not listed (free response)', 'prefer not to respond'
+                        ],
+                        name: 'gender', 
+                        // required: true,
+                    },
+                ],
             ],
             title: 'Please enter the following information',
             //button_label_next: 'Continue',
             //button_label_back: 'Previous',
             button_label_finish: 'Submit',
             //show_question_numbers: 'onPage'
-            };
-            timeline.push(demographic_info);
-        
+        };
+        timeline.push(demographic_info);
 
-
-            var Exp_Done = {
+        var Exp_Done = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "Experiment is done! Thank you for participating in our project.",
-            };
-            timeline.push(Exp_Done);
+            stimulus: "Please press Enter for your results to be saved. It may take up to several minutes depending on your internet speed!",
+        };
+        timeline.push(Exp_Done);
 
-            const subject_id = jsPsych.randomization.randomID(10);
-            const filename = `${subject_id}.csv`;
+        const subject_id = jsPsych.randomization.randomID(10);
+        const filename = `${subject_id}.csv`;
 
-            const save_data = {
+        const save_data = {
             type: jsPsychPipe,
             action: "save",
             experiment_id: expID,
             filename: filename,
             data_string: ()=>jsPsych.data.get().csv()
-            };
-            timeline.push(save_data);
+        };
+        timeline.push(save_data);
+
+        var Exp_Done = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: "Thank you! We received your data! You can now close this window.",
+        };
+        timeline.push(Exp_Done);
 
 
         jsPsych.run(timeline);
