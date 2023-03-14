@@ -728,26 +728,42 @@
                     },
                     {
                         type: 'text',
-                        prompt: 'Do you know a second language, besides English? If so, enter it here',
+                        prompt: 'Do you know a second language, besides English? If so, enter it here:',
                         placeholder: 'Example: Spanish',
-                        name: 'SecondLanguage'
+                        name: '2ndLanguage'
                     },
                     {
-                        type: 'multi-choice',
-                        prompt: 'Please rate your fluency in your second language from 1 to 5; with 5 being the highest fluency',
-                        options: ['1', '2', '3', '4', '5'],
-                        name: 'Sec_Lg_Fluency'
-                    },
+                        type: 'likert',
+                        prompt: 'Please rate your fluency in your second language:',
+                        name: '2nd_lg_fluency',
+                        likert_scale_min_label: 'Beginner',
+                        likert_scale_max_label: 'Fluent',
+                        likert_scale_values: [
+                        {value: 1},
+                        {value: 2},
+                        {value: 3},
+                        {value: 4},
+                        {value: 5}
+                        ]
+                    },                     
                     {
                         type: 'text',
                         prompt: 'Do you know a third language? If so, enter it here',
                         name: 'SecondLanguage'
                     },
                     {
-                        type: 'multi-choice',
-                        prompt: 'Please rate your fluency in your third language from 1 to 5; with 5 being the highest fluency',
-                        options: ['1', '2', '3', '4', '5'],
-                        name: '3rd_Lg_Fluency'
+                        type: 'likert',
+                        prompt: 'Please rate your fluency in your third language:',
+                        name: '3rd_lg_fluency',
+                        likert_scale_min_label: 'Beginner',
+                        likert_scale_max_label: 'Fluent',
+                        likert_scale_values: [
+                        {value: 1},
+                        {value: 2},
+                        {value: 3},
+                        {value: 4},
+                        {value: 5}
+                        ]
                     },
                 ],
                 [
