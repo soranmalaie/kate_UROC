@@ -73,7 +73,7 @@
         // welcoming message
         var greeting = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "Welcome to the experiment! press any key to start",
+            stimulus: "Welcome to the experiment! Press any key to start.",
         };
         timeline.push(greeting);
 
@@ -82,36 +82,41 @@
             pages: [
 
                 '<p style="font-size:24px;font-weight:bold;">CONSENT TO PARTICIPATE IN A RESEARCH STUDY<p> ' +
-                '<p style="class=positivefeedback;font-size:18px">'+
+                '<p style="class=positivefeedback; text-align:left; font-size:18px">'+
                 '<b>Study Title: Reasoning and Learning</b><p>' + 
-                '<p><b>Investigator Name, Department, Telephone Number:</b><p>'+
-                'Prof. Tyler Marghetis, Cognitive and Information Sciences, 619-252-7798<p>'+
-                '<b>PURPOSE</b><p>'+
-                'You are being asked to participate in a research study conducted by Prof. Tyler Marghetis'+
-                ' at the University of California, Merced.  We hope to learn about how people reason about abstract concepts and complex topics.<p>'+
-                '<b>PROCEDURES</b><p>'+
-                'If you choose to be in the study, you will be asked to answer questions, solve puzzles, and/or describe your reasoning.'+
+                '<p style="text-align:left"><b>Investigator Name, Department, Telephone Number:</b>'+
+                '<p style="text-align:left">Prof. Tyler Marghetis, Cognitive and Information Sciences, 619-252-7798<p>'+
+                '<p style="text-align:left"><b>PURPOSE</b>'+
+                '<p style="text-align:left">You are being asked to participate in a research study conducted by Prof. Tyler Marghetis'+
+                ' at the University of California, Merced.  We hope to learn about how people reason about abstract concepts and complex topics.'+
+                '<p style="text-align:left"><b>PROCEDURES</b><p>'+
+                '<p style="text-align:left">If you choose to be in the study, you will be asked to answer questions, solve puzzles, and/or describe your reasoning.'+
                 ' You will respond by writing, speaking, typing, and/or clicking on a computer screen. We may record your responses, '+
                 'including all interactions with the computer. These tasks allow us to better understand how people learn and reason.'+
                 ' This should take between 5 minutes and one hour. The study will be completed either in-person or online on your computer.'+
-                ' You can stop the study at any time. Approximately 5,000 people will participate in this study.<p>'+
-                '<b>ALTERNATIVES </b><p>'+
-                'If you are receiving extra credit in connection with or as part of a course, your instructor must offer you other options for obtaining credit, if you decline to participate.<p>'+
-                '<b>RISKS</b><p>'+
-                'Participants should generally not experience any risks beyond those of daily living and computer use. One potential risk is frustration when trying to solve more difficult reasoning problems.<p>'+
-                '<b>BENEFITS</b><p>'+
-                'It is possible that you will not benefit directly by participating in this study. <p>'+
-                '<b>CONFIDENTIALITY</b><p>'+
-                'Absolute confidentiality cannot be guaranteed, since research documents are not protected from subpoena. We will not ask for any identifiable information. The data collected in this study could be used for future research studies or distributed to other investigators for future research studies without additional informed consent from the subject or legally authorized representative. The information collected during this study may be presented at conferences, published in scientific journals, and shared with other researchers. Identifiable information will be removed before the data is shared. Individual privacy will be maintained and identities will not be disclosed. <p>'+
-                '<b>COSTS/COMPENSATION</b><p>'+
-                'If you are volunteering, you will receive a small token gift as a sign of our appreciation. If you are participating in return for payment, you will be compensated approximately $8/hour for participating in this study. If you are participating in return for course credit, you will be compensated through the SONA system with course credit (0.5 credit per half-hour), even if you do not complete the study. There is no cost to you beyond the time and effort required to complete the procedure(s) described above.<p>'+
-                '<b>RIGHT TO REFUSE OR WITHDRAW</b><p>'+
-                'Participation is completely voluntary.  You may refuse to participate in this study.  You may change your mind about being in the study and quit after the study has started.<p>'+
-                '<b>QUESTIONS</b><p>'+
-                'If you have any questions about this research project please contact Prof. Tyler Marghetis, who will answer them at 619-252-7798 or tmarghetis@ucmerced.edu<p>'+
-                'For questions about your rights while taking part in this study call the Office of Research at (209) 228-4613 or write to the Office of Research,5200 North Lake Rd, UC Merced, Merced, CA 95343.  The Office of Research will inform the Institutional Review Board which is a group of people who review the research to protect your rights.  If you have any complaints or concerns about this study, you may address them to Rose Scott, Chair of the IRB at (209) 228-4362, irbchair@ucmerced.edu.   <p>'+
-                '<b>CONSENT</b><p>'+
-                '<b>By choosing to continue to the next screen, you indicate that you have decided to participate as a research subject and that you have read and understood the information provided above. You may save a copy of this form to keep for your records. </b><p>'
+                ' You can stop the study at any time. Approximately 5,000 people will participate in this study.'+
+                '<p style="text-align:left"><b>ALTERNATIVES </b>'+
+                '<p style="text-align:left">If you are receiving extra credit in connection with or as part of a course, your instructor must offer you other options for obtaining credit, if you decline to participate.'+
+                '<p style="text-align:left"><b>RISKS</b>'+
+                '<p style="text-align:left">Participants should generally not experience any risks beyond those of daily living and computer use. One potential risk is frustration when trying to solve more difficult reasoning problems.'+
+                '<p style="text-align:left"><b>BENEFITS</b>'+
+                '<p style="text-align:left">It is possible that you will not benefit directly by participating in this study. '+
+                '<p style="text-align:left"><b>CONFIDENTIALITY</b>'+
+                '<p style="text-align:left">Absolute confidentiality cannot be guaranteed, since research documents are not protected from subpoena. We will not ask for any identifiable information.'+
+                ' The data collected in this study could be used for future research studies or distributed to other investigators for future research studies without additional informed consent from the subject or legally authorized representative.'+
+                ' The information collected during this study may be presented at conferences, published in scientific journals, and shared with other researchers.'+
+                ' Identifiable information will be removed before the data is shared. Individual privacy will be maintained and identities will not be disclosed.'+
+                '<p style="text-align:left"><b>COSTS/COMPENSATION</b>'+
+                '<p style="text-align:left">If you are volunteering, you will receive a small token gift as a sign of our appreciation. If you are participating in return for payment, you will be compensated approximately $8/hour for participating in this study.'+
+                ' If you are participating in return for course credit, you will be compensated through the SONA system with course credit (0.5 credit per half-hour), even if you do not complete the study. There is no cost to you beyond the time and effort required to complete the procedure(s) described above.'+
+                '<p style="text-align:left"><b>RIGHT TO REFUSE OR WITHDRAW</b>'+
+                '<p style="text-align:left">Participation is completely voluntary.  You may refuse to participate in this study.  You may change your mind about being in the study and quit after the study has started.'+
+                '<p style="text-align:left"><b>QUESTIONS</b>'+
+                '<p style="text-align:left">If you have any questions about this research project please contact Prof. Tyler Marghetis, who will answer them at 619-252-7798 or tmarghetis@ucmerced.edu'+
+                'For questions about your rights while taking part in this study call the Office of Research at (209) 228-4613 or write to the Office of Research,5200 North Lake Rd, UC Merced, Merced, CA 95343.'+
+                ' The Office of Research will inform the Institutional Review Board which is a group of people who review the research to protect your rights.  If you have any complaints or concerns about this study, you may address them to Rose Scott, Chair of the IRB at (209) 228-4362, irbchair@ucmerced.edu.'+
+                '<p style="text-align:left"><b>CONSENT</b>'+
+                '<p style="text-align:left"><b>By choosing to continue to the next screen, you indicate that you have decided to participate as a research subject and that you have read and understood the information provided above. You may save a copy of this form to keep for your records. </b><p>'
             ],
             show_clickable_nav: true, 
             button_label_next: 'Agree & Continue' 
@@ -200,7 +205,7 @@
             type: jsPsychInstructions,
             pages: [
 
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
                 '<p style="class=positivefeedback;font-size:24px">'+
                 'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
                 ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
@@ -215,8 +220,10 @@
                 '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
                 ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
                 'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>continue</b> button ' +
-                'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
-                'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
+                'to see the next trial.'+
+                'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
+                ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                'pushing the Continue button. You will see a video as an example  of how to deliver the items.' + '<br>' +
                 '<img src="Venice_Map.png"></img>'
             ],
             show_clickable_nav: true      
@@ -225,7 +232,7 @@
         var let_set_instruction_diverse = {
             type: jsPsychInstructions,
             pages: [                
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
                 '<p style="class=positivefeedback;font-size:24px">'+
                 'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
                 ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
@@ -252,7 +259,7 @@
         var CRAP_instruction_linear = {
             type: jsPsychInstructions,
             pages: [
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
                 '<p style="class=positivefeedback;font-size:24px">'+
                 'In this task, you will see three words and your job is to find the fourth word that makes a common'+
                 ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
@@ -268,8 +275,9 @@
                 ' from the red dot to the location that will be mentioned above the map;'+
                 ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
                 'You should draw the lines through the roads and without crossing over the bulidings,'+
-                ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
-                ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                ' and then click on the <b>Continue</b> button to see the next trial.'+
+                'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
+                ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                 'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
                 '<img src="Venice_Map.png"></img>'
             ],
@@ -280,7 +288,7 @@
         var CRAP_instruction_diverse = {
             type: jsPsychInstructions,
             pages: [
-                '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+                '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
                 '<p style="class=positivefeedback;font-size:24px">'+
                 'In this task, you will see three words and your job is to find the fourth word that makes a common'+
                 ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
@@ -310,8 +318,7 @@
             pages: [
             '<p style="font-size:32px;font-weight:bold;">End of Task 1<p> ' +
                 '<p style="class=positivefeedback;font-size:24px">'+
-                'The first task finished. Whenver you are ready now, please click Next to start'+
-                ' the second half of the experiment with similar map and instruction but a different task.'
+                'You have finished the first of two tasks. Whenever you are ready to continue, please click Next to start the second half of the experiment.'
             ],
         show_clickable_nav: true,
 
@@ -323,7 +330,7 @@
 
         var video_instruction_linear = {
             type: jsPsychVideoKeyboardResponse,
-            prompt: "Reminder: Hold <b>z</b> on your keyboard to draw. <P> After the video finished, hit <b>Enter</b> to start the task.",
+            prompt: "Reminder: Hold <b>z</b> on your keyboard to draw. <P> When the video has finished, hit <b>Enter</b> to start the task.",
             stimulus: [
                 'Linear_final.mp4'
             ],
@@ -337,7 +344,7 @@
 
         var video_instruction_diverse = {
             type: jsPsychVideoKeyboardResponse,
-            prompt: "Reminder: Hold <b>z</b> on your keyboard to draw. <P> After the video finished, hit <b>Enter</b> to start the task.",
+            prompt: "Reminder: Hold <b>z</b> on your keyboard to draw. <P> When the video has finished, hit <b>Enter</b> to start the task.",
             stimulus: [
                 'Diverse_final.mp4'
             ],
@@ -635,7 +642,7 @@
         var tasks_finished = {
             type: jsPsychInstructions,
             pages: [
-            '<p style="font-size:32px;font-weight:bold;">Instruction<p> ' +
+            '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
                 '<p style="class=positivefeedback;font-size:24px">'+
                 'Great! The experiment is almost done! Next, you will see a list of names. Some of them are authors of books or novels, and some are not.'+
                 ' Please put a check mark next to the names that you know <b>for sure</b> are authors. There is a penalty '+
@@ -717,14 +724,34 @@
                         prompt: "Are you a native English Speaker?", 
                         options: ['Yes','No'],
                         name: 'Langauge',
-                        // required: true,
+                        required: true,
                     },
                     {
                         type: 'text',
-                        prompt: 'Do you know another language? If yes, please rate it from 0 to 10; with 10 being the highest fluency',
-                        placeholder: 'Example: Spanish (8)',
+                        prompt: 'Do you know a second language, besides English? If so, enter it here',
+                        placeholder: 'Example: Spanish',
                         name: 'SecondLanguage'
                     },
+                    {
+                        type: 'multi-choice',
+                        prompt: 'Please rate your fluency in your second language from 1 to 5; with 5 being the highest fluency',
+                        options: ['1', '2', '3', '4', '5'],
+                        name: 'Sec_Lg_Fluency'
+                    },
+                    {
+                        type: 'text',
+                        prompt: 'Do you know a third language? If so, enter it here',
+                        name: 'SecondLanguage'
+                    },
+                    {
+                        type: 'multi-choice',
+                        prompt: 'Please rate your fluency in your third language from 1 to 5; with 5 being the highest fluency',
+                        options: ['1', '2', '3', '4', '5'],
+                        name: '3rd_Lg_Fluency'
+                    },
+                ],
+                [
+
                     {
                         type: 'text',
                         prompt: "How old are you in years?",
@@ -749,7 +776,7 @@
                         prompt: 'What is your race? (choose all that apply) ',
                         options:[
                             'White', 'Spanish, Hispanic, or Latino', 'Black or African American', 'American Indian or Alaska Native',
-                            'Asian','Native Hawaiian or Pacific Islander','Not listed (free response)'
+                            'Asian','Native Hawaiian or Pacific Islander','Not listed or prefer not to say'
                         ],
                         name: 'Race',
 
@@ -759,7 +786,7 @@
                         prompt: "Which of the following best describes your sexual orientation?", 
                         options: [
                             'straight (heterosexual)','gay or lesbian (homosexual)', 'bisexual', 'queer',
-                            'asexual', 'not listed (free response)', 'prefer not to respond' 
+                            'asexual', 'not listed or prefer not to respond' 
                         ],
                         name: 'sexual orientation', 
                         // required: true,
@@ -769,7 +796,7 @@
                         prompt: "Which of the following best describes your gender identity? ", 
                         options: [
                             'man', 'woman', 'non-binary', 'transgender woman', 'transgender man', 'genderqueer',
-                            'not listed (free response)', 'prefer not to respond'
+                            'not listed', 'prefer not to respond'
                         ],
                         name: 'gender', 
                         // required: true,
