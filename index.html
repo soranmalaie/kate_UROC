@@ -33,7 +33,7 @@
                 
         var timeline = [];
 
-        var tr_duration = 5000;
+        var tr_duration = 30000;
         var venice_path = ['Venice_Map.png'];
        
         //preloading the Venice map
@@ -127,28 +127,28 @@
         var let_set = [
                         "<b>ab</b>",
                         "<b>da</b>",
-                        // "<b>ea</b>",
-                        // "<b>gl</b>",
-                        // "<b>gr</b>",
-                        // "<b>le</b>",
-                        // "<b>mi</b>",
-                        // "<b>pr</b>",
-                        // "<b>st</b>",
-                        // "<b>zo</b>",							
+                        "<b>ea</b>",
+                        "<b>gl</b>",
+                        "<b>gr</b>",
+                        "<b>le</b>",
+                        "<b>mi</b>",
+                        "<b>pr</b>",
+                        "<b>st</b>",
+                        "<b>zo</b>",							
                     ];
         var shuffled_let_set = jsPsych.randomization.repeat(let_set, 1);
    
         var CRAP_set = [
                         "<b>pie   luck   belly</b>",
                         "<b>opera   hand   dish</b>",
-                        // "<b>dust   cereal   fish</b>",
-                        // "<b>light   birthday   stick</b>",
-                        // "<b>palm   shoe   house</b>",
-                        // "<b>sage   paint   hair</b>",
-                        // "<b>french   car   shoe</b>",
-                        // "<b>carpet   alert   ink</b>",
-                        // "<b>mouse   bear   sand</b>",
-                        // "<b>show   life   row</b>",
+                        "<b>dust   cereal   fish</b>",
+                        "<b>light   birthday   stick</b>",
+                        "<b>palm   shoe   house</b>",
+                        "<b>sage   paint   hair</b>",
+                        "<b>french   car   shoe</b>",
+                        "<b>carpet   alert   ink</b>",
+                        "<b>mouse   bear   sand</b>",
+                        "<b>show   life   row</b>",
                     ];
         var shuffled_CRAP_set = jsPsych.randomization.repeat(CRAP_set, 1);
 
@@ -199,118 +199,6 @@
             "Imagine there are five items on the red dot. Deliver the items from the red spot to the following locations,"+
                 " (to draw a line hold z and move your mouse cursor):<p> <b>K, A, P, N, C<b> <p>",
         ];
-
-            
-        var let_set_instruction_linear = {
-            type: jsPsychInstructions,
-            pages: [
-
-                '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
-                '<p style="class=positivefeedback;font-size:24px">'+
-                'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
-                ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
-                'For example, for <b>lo</b>, you can write down words such as love, low, lobster, lord,' +
-                ' locomotion, and so on.<p>' + 
-                '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
-                ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
-                'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
-                'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
-                'searching for more words.',
-                '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
-                ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
-                'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>continue</b> button ' +
-                'to see the next trial.'+
-                'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
-                ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
-                'pushing the Continue button. You will see a video as an example  of how to deliver the items.' + '<br>' +
-                '<img src="Venice_Map.png"></img>'
-            ],
-            show_clickable_nav: true      
-        };
-
-        var let_set_instruction_diverse = {
-            type: jsPsychInstructions,
-            pages: [                
-                '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
-                '<p style="class=positivefeedback;font-size:24px">'+
-                'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
-                ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
-                'For example, for <b>lo</b>, you can write down words such as love, low, lobster, lord,' +
-                ' locomotion, and so on.<p>' + 
-                '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
-                ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
-                'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
-                'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
-                'searching for more words.',
-                '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
-                ' from the red dot to the locations that will be mentioned above the map;'+
-                ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
-                'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
-                'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
-                'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                '<img src="Venice_Map.png"></img>'
-            ],
-        show_clickable_nav: true                  
-        };
-
-            
-        var CRAP_instruction_linear = {
-            type: jsPsychInstructions,
-            pages: [
-                '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
-                '<p style="class=positivefeedback;font-size:24px">'+
-                'In this task, you will see three words and your job is to find the fourth word that makes a common'+
-                ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
-                +' fourth word that makes a common two-word phrase with each of them is “band” — as in band-aid, rubber'+
-                ' band, and bandwagon. Another example is “cream    skate    water”.   What word makes a common two-word '+
-                'phrase with each of them? It is ice — as in, ice cream, ice skate, and ice water. '+
-                '<p style="class=positivefeedback;font-size:24px">'+
-                'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
-                ' Please type your solution and hit Enter right away.',
-                '<p style="font-size:24px;">Before each trial, you will be shown the following map'+
-                ' in which you need to deliver some items from the starting point ' + 
-                '(the red dot on the map) to a location. To do this, simply draw five lines, one by one,'+
-                ' from the red dot to the location that will be mentioned above the map;'+
-                ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
-                'You should draw the lines through the roads and without crossing over the bulidings,'+
-                ' and then click on the <b>Continue</b> button to see the next trial.'+
-                'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
-                ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
-                'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                '<img src="Venice_Map.png"></img>'
-            ],
-        show_clickable_nav: true
-                    
-        };
-
-        var CRAP_instruction_diverse = {
-            type: jsPsychInstructions,
-            pages: [
-                '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
-                '<p style="class=positivefeedback;font-size:24px">'+
-                'In this task, you will see three words and your job is to find the fourth word that makes a common'+
-                ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
-                +' fourth word that makes a common two-word phrase with each of them is “band” — as in band-aid, rubber'+
-                ' band, and bandwagon. Another example is “cream    skate    water”.   What word makes a common two-word '+
-                'phrase with each of them? It is ice — as in, ice cream, ice skate, and ice water. '+
-                '<p style="class=positivefeedback;font-size:24px">'+
-                'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
-                ' Please type your solution and hit Enter right away.',
-                '<p style="font-size:24px;">Before each trial, you will be shown the following map'+
-                ' in which you need to deliver some items from the starting point ' + 
-                '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
-                ' from the red dot to the locations that will be mentioned above the map;'+
-                ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
-                'You should draw the lines through the roads and without crossing over the bulidings,'+
-                ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
-                ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
-                'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                '<img src="Venice_Map.png"></img>'
-            ],
-        show_clickable_nav: true                      
-        };
 
         // between task message
         var task1_done = {
@@ -479,21 +367,133 @@
             // Push the functions into the timeline in the randomly determined order
             if(functionOrder[0] == let_set_procedures){
 
-            timeline.push(let_set_instruction_linear);
+            var let_set_instruction_linear = {
+                type: jsPsychInstructions,
+                pages: [
+
+                    '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
+                    ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
+                    'For example, for <b>lo</b>, you can write down words such as love, low, lobster, lord,' +
+                    ' locomotion, and so on.<p>' + 
+                    '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
+                    ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
+                    'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
+                    'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
+                    'searching for more words.',
+                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
+                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
+                    ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                    'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>continue</b> button ' +
+                    'to see the next trial.'+
+                    'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
+                    ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                    'pushing the Continue button. You will see a video as an example  of how to deliver the items.' + '<br>' +
+                    '<img src="Venice_Map.png"></img>'
+                ],
+                show_clickable_nav: true      
+            };
+
             timeline.push(video_instruction_linear);
             timeline.push(functionOrder[0]);
             timeline.push(task1_done);
-            timeline.push(CRAP_instruction_linear);
+            
+            var CRAP_instruction_linear = {
+                type: jsPsychInstructions,
+                pages: [
+                    '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'In this task, you will see three words and your job is to find the fourth word that makes a common'+
+                    ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
+                    +' fourth word that makes a common two-word phrase with each of them is “band” — as in band-aid, rubber'+
+                    ' band, and bandwagon. Another example is “cream    skate    water”.   What word makes a common two-word '+
+                    'phrase with each of them? It is ice — as in, ice cream, ice skate, and ice water. '+
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
+                    ' Please type your solution and hit Enter right away.',
+                    '<p style="font-size:24px;">Like the previous task, before each trial, you will be shown the following map'+
+                    ' in which you need to deliver some items from the starting point ' + 
+                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one,'+
+                    ' from the red dot to the location that will be mentioned above the map;'+
+                    ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                    'You should draw the lines through the roads and without crossing over the bulidings,'+
+                    ' and then click on the <b>Continue</b> button to see the next trial.'+
+                    'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
+                    ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                    'pushing the Continue button.' + '<br>' +
+                    '<img src="Venice_Map.png"></img>'
+                ],
+            show_clickable_nav: true
+
+            };
+
             timeline.push(functionOrder[1]);
             }
             
             if(functionOrder[0] == CRAP_procedures){
 
-            timeline.push(CRAP_instruction_linear);
+            
+            var CRAP_instruction_linear = {
+                type: jsPsychInstructions,
+                pages: [
+                    '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'In this task, you will see three words and your job is to find the fourth word that makes a common'+
+                    ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
+                    +' fourth word that makes a common two-word phrase with each of them is “band” — as in band-aid, rubber'+
+                    ' band, and bandwagon. Another example is “cream    skate    water”.   What word makes a common two-word '+
+                    'phrase with each of them? It is ice — as in, ice cream, ice skate, and ice water. '+
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
+                    ' Please type your solution and hit Enter right away.',
+                    '<p style="font-size:24px;">Before each trial, you will be shown the following map'+
+                    ' in which you need to deliver some items from the starting point ' + 
+                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one,'+
+                    ' from the red dot to the location that will be mentioned above the map;'+
+                    ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                    'You should draw the lines through the roads and without crossing over the bulidings,'+
+                    ' and then click on the <b>Continue</b> button to see the next trial.'+
+                    'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
+                    ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                    'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
+                    '<img src="Venice_Map.png"></img>'
+                ],
+            show_clickable_nav: true
+
+            };
+
             timeline.push(video_instruction_linear);
             timeline.push(functionOrder[0]);
             timeline.push(task1_done);
-            timeline.push(let_set_instruction_linear);
+            var let_set_instruction_linear = {
+                type: jsPsychInstructions,
+                pages: [
+
+                    '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
+                    ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
+                    'For example, for <b>lo</b>, you can write down words such as love, low, lobster, lord,' +
+                    ' locomotion, and so on.<p>' + 
+                    '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
+                    ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
+                    'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
+                    'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
+                    'searching for more words.',
+                    '<p style="font-size:24px;">Like the previous task, before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
+                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
+                    ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                    'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>continue</b> button ' +
+                    'to see the next trial.'+
+                    'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
+                    ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                    'pushing the Continue button.' + '<br>' +
+                    '<img src="Venice_Map.png"></img>'
+                ],
+                show_clickable_nav: true      
+            };
+
             timeline.push(functionOrder[1]);
 
             }
@@ -616,21 +616,125 @@
             // Push the functions into the timeline in the randomly determined order
             if(functionOrder[0] == let_set_procedures){
 
-            timeline.push(let_set_instruction_diverse);
+            
+            var let_set_instruction_diverse = {
+                type: jsPsychInstructions,
+                pages: [                
+                    '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
+                    ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
+                    'For example, for <b>lo</b>, you can write down words such as love, low, lobster, lord,' +
+                    ' locomotion, and so on.<p>' + 
+                    '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
+                    ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
+                    'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
+                    'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
+                    'searching for more words.',
+                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
+                    '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
+                    ' from the red dot to the locations that will be mentioned above the map;'+
+                    ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                    'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
+                    'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                    'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
+                    '<img src="Venice_Map.png"></img>'
+                ],
+            show_clickable_nav: true                  
+            };
+
             timeline.push(video_instruction_diverse);
             timeline.push(functionOrder[0]);
             timeline.push(task1_done);
-            timeline.push(CRAP_instruction_diverse);
+            var CRAP_instruction_diverse = {
+                type: jsPsychInstructions,
+                pages: [
+                    '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'In this task, you will see three words and your job is to find the fourth word that makes a common'+
+                    ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
+                    +' fourth word that makes a common two-word phrase with each of them is “band” — as in band-aid, rubber'+
+                    ' band, and bandwagon. Another example is “cream    skate    water”.   What word makes a common two-word '+
+                    'phrase with each of them? It is ice — as in, ice cream, ice skate, and ice water. '+
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
+                    ' Please type your solution and hit Enter right away.',
+                    '<p style="font-size:24px;">Like the previous task, before each trial, you will be shown the following map'+
+                    ' in which you need to deliver some items from the starting point ' + 
+                    '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
+                    ' from the red dot to the locations that will be mentioned above the map;'+
+                    ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                    'You should draw the lines through the roads and without crossing over the bulidings,'+
+                    ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
+                    ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                    'pushing the Continue button.' + '<br>' +
+                    '<img src="Venice_Map.png"></img>'
+                ],
+            show_clickable_nav: true                      
+            };
+
             timeline.push(functionOrder[1]);
             }
 
             if(functionOrder[0] == CRAP_procedures){
 
-            timeline.push(CRAP_instruction_diverse);
+            var CRAP_instruction_diverse = {
+                type: jsPsychInstructions,
+                pages: [
+                    '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'In this task, you will see three words and your job is to find the fourth word that makes a common'+
+                    ' two-word phrase with each of them. For example, if you saw “aid    rubber    wagon”, then the correct'
+                    +' fourth word that makes a common two-word phrase with each of them is “band” — as in band-aid, rubber'+
+                    ' band, and bandwagon. Another example is “cream    skate    water”.   What word makes a common two-word '+
+                    'phrase with each of them? It is ice — as in, ice cream, ice skate, and ice water. '+
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
+                    ' Please type your solution and hit Enter right away.',
+                    '<p style="font-size:24px;">Before each trial, you will be shown the following map'+
+                    ' in which you need to deliver some items from the starting point ' + 
+                    '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
+                    ' from the red dot to the locations that will be mentioned above the map;'+
+                    ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                    'You should draw the lines through the roads and without crossing over the bulidings,'+
+                    ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
+                    ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                    'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
+                    '<img src="Venice_Map.png"></img>'
+                ],
+            show_clickable_nav: true                      
+            };
+
             timeline.push(video_instruction_diverse);
             timeline.push(functionOrder[0]);
             timeline.push(task1_done);
-            timeline.push(let_set_instruction_diverse);
+            
+            var let_set_instruction_diverse = {
+                type: jsPsychInstructions,
+                pages: [                
+                    '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
+                    '<p style="class=positivefeedback;font-size:24px">'+
+                    'In this task, you will see the first two letters of possible words. For each pair of letters,' + 
+                    ' you will have <b>30 seconds</b> to type in as many English words as you can that begin with those letters. ' + 
+                    'For example, for <b>lo</b>, you can write down words such as love, low, lobster, lord,' +
+                    ' locomotion, and so on.<p>' + 
+                    '<p style="font-size:24px;">You <b>cannot</b> use proper nouns, such as names of places or people (e. g. London, Lora). You can' + 
+                    ' be specific in your responses, but do not waste your time by adding different suffixes. For example, '+
+                    'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
+                    'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
+                    'searching for more words.',
+                    '<p style="font-size:24px;">Like the previous task, before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
+                    '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
+                    ' from the red dot to the locations that will be mentioned above the map;'+
+                    ' To draw a line hold <b>z</b> button on your keyboard and move your mouse cursor. ' + 
+                    'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
+                    'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
+                    'pushing the Continue button.' + '<br>' +
+                    '<img src="Venice_Map.png"></img>'
+                ],
+            show_clickable_nav: true                  
+            };
+
             timeline.push(functionOrder[1]);
 
             }
