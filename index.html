@@ -33,7 +33,7 @@
                 
         var timeline = [];
 
-        var tr_duration = 30000;
+        var tr_duration = 3000;
         var venice_path = ['Venice_Map.png'];
        
         //preloading the Venice map
@@ -127,28 +127,28 @@
         var let_set = [
                         "<b>ab</b>",
                         "<b>da</b>",
-                        "<b>ea</b>",
-                        "<b>gl</b>",
-                        "<b>gr</b>",
-                        "<b>le</b>",
-                        "<b>mi</b>",
-                        "<b>pr</b>",
-                        "<b>st</b>",
-                        "<b>zo</b>",							
+                        // "<b>ea</b>",
+                        // "<b>gl</b>",
+                        // "<b>gr</b>",
+                        // "<b>le</b>",
+                        // "<b>mi</b>",
+                        // "<b>pr</b>",
+                        // "<b>st</b>",
+                        // "<b>zo</b>",							
                     ];
         var shuffled_let_set = jsPsych.randomization.repeat(let_set, 1);
    
         var CRAP_set = [
                         "<b>pie   luck   belly</b>",
                         "<b>opera   hand   dish</b>",
-                        "<b>dust   cereal   fish</b>",
-                        "<b>light   birthday   stick</b>",
-                        "<b>palm   shoe   house</b>",
-                        "<b>sage   paint   hair</b>",
-                        "<b>french   car   shoe</b>",
-                        "<b>carpet   alert   ink</b>",
-                        "<b>mouse   bear   sand</b>",
-                        "<b>show   life   row</b>",
+                        // "<b>dust   cereal   fish</b>",
+                        // "<b>light   birthday   stick</b>",
+                        // "<b>palm   shoe   house</b>",
+                        // "<b>sage   paint   hair</b>",
+                        // "<b>french   car   shoe</b>",
+                        // "<b>carpet   alert   ink</b>",
+                        // "<b>mouse   bear   sand</b>",
+                        // "<b>show   life   row</b>",
                     ];
         var shuffled_CRAP_set = jsPsych.randomization.repeat(CRAP_set, 1);
 
@@ -367,7 +367,7 @@
             // Push the functions into the timeline in the randomly determined order
             if(functionOrder[0] == let_set_procedures){
 
-            var let_set_instruction_linear = {
+            var let_set_instruction_linear1 = {
                 type: jsPsychInstructions,
                 pages: [
 
@@ -394,12 +394,12 @@
                 ],
                 show_clickable_nav: true      
             };
-
+            timeline.push(let_set_instruction_linear1)
             timeline.push(video_instruction_linear);
             timeline.push(functionOrder[0]);
             timeline.push(task1_done);
             
-            var CRAP_instruction_linear = {
+            var CRAP_instruction_linear2 = {
                 type: jsPsychInstructions,
                 pages: [
                     '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
@@ -425,16 +425,16 @@
                     '<img src="Venice_Map.png"></img>'
                 ],
             show_clickable_nav: true
-
             };
 
+            timeline.push(CRAP_instruction_linear2)
             timeline.push(functionOrder[1]);
             }
             
             if(functionOrder[0] == CRAP_procedures){
 
             
-            var CRAP_instruction_linear = {
+            var CRAP_instruction_linear1 = {
                 type: jsPsychInstructions,
                 pages: [
                     '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
@@ -462,11 +462,12 @@
             show_clickable_nav: true
 
             };
+            timeline.push(CRAP_instruction_linear1)
 
             timeline.push(video_instruction_linear);
             timeline.push(functionOrder[0]);
             timeline.push(task1_done);
-            var let_set_instruction_linear = {
+            var let_set_instruction_linear2 = {
                 type: jsPsychInstructions,
                 pages: [
 
@@ -493,7 +494,7 @@
                 ],
                 show_clickable_nav: true      
             };
-
+            timeline.push(let_set_instruction_linear2);
             timeline.push(functionOrder[1]);
 
             }
@@ -617,7 +618,7 @@
             if(functionOrder[0] == let_set_procedures){
 
             
-            var let_set_instruction_diverse = {
+            var let_set_instruction_diverse1 = {
                 type: jsPsychInstructions,
                 pages: [                
                     '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
@@ -642,11 +643,11 @@
                 ],
             show_clickable_nav: true                  
             };
-
+            timeline.push(let_set_instruction_diverse1);
             timeline.push(video_instruction_diverse);
             timeline.push(functionOrder[0]);
             timeline.push(task1_done);
-            var CRAP_instruction_diverse = {
+            var CRAP_instruction_diverse2 = {
                 type: jsPsychInstructions,
                 pages: [
                     '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
@@ -672,13 +673,13 @@
                 ],
             show_clickable_nav: true                      
             };
-
+            timeline.push(CRAP_instruction_diverse2);
             timeline.push(functionOrder[1]);
             }
 
             if(functionOrder[0] == CRAP_procedures){
 
-            var CRAP_instruction_diverse = {
+            var CRAP_instruction_diverse1 = {
                 type: jsPsychInstructions,
                 pages: [
                     '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
@@ -704,12 +705,13 @@
                 ],
             show_clickable_nav: true                      
             };
+            timeline.push(CRAP_instruction_diverse1);
 
             timeline.push(video_instruction_diverse);
             timeline.push(functionOrder[0]);
             timeline.push(task1_done);
             
-            var let_set_instruction_diverse = {
+            var let_set_instruction_diverse2 = {
                 type: jsPsychInstructions,
                 pages: [                
                     '<p style="font-size:32px;font-weight:bold;">Instructions<p> ' +
@@ -734,6 +736,7 @@
                 ],
             show_clickable_nav: true                  
             };
+            timeline.push(let_set_instruction_diverse2);
 
             timeline.push(functionOrder[1]);
 
