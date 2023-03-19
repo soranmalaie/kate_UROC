@@ -26,9 +26,9 @@
               
         // intialize jsPsych
         var jsPsych = initJsPsych({
-            // on_finish: function() {
-            //     jsPsych.data.displayData();
-            // }
+            on_finish: function(){
+                window.location = "https://app.prolific.co/submissions/complete?cc=CYK03HRO"
+            }
         });
                 
         var timeline = [];
@@ -69,6 +69,10 @@
             }
         };
         timeline.push(screen_check);
+
+        const subject_id = jsPsych.randomization.randomID(10);
+        jsPsych.data.addProperties({subject_id: subject_id});
+
 
         // welcoming message
         var greeting = {
@@ -388,7 +392,7 @@
                     'pushing the Continue button. You will see a video as an example  of how to deliver the items.' + '<br>' +
                     '<img src="Venice_Map.png"></img>'
                 ],
-                show_clickable_nav: true      
+                show_clickable_nav: true
             };
             timeline.push(let_set_instruction_linear1)
             timeline.push(video_instruction_linear);
@@ -949,11 +953,11 @@
 
         var Exp_Done = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "Please press Enter for your results to be saved. It may take up to several minutes depending on your internet speed!",
+            stimulus: "Please press Enter for your results to be saved. Do not close this window; you will be redirected to the Prolific website automatically to get your credit after we received your results."+
+            "<p> It may take one minute, or longer depending on your internet speed! <p> <b>Thank you for your participation :) </b>",
         };
         timeline.push(Exp_Done);
 
-        const subject_id = jsPsych.randomization.randomID(10);
         const filename = `${subject_id}.csv`;
 
         const save_data = {
