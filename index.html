@@ -19,16 +19,30 @@
     <body></body>
     <script>
 
-        //we need to add that only native english speakers can participate in this study!
-
         // experiment ID from DataPipe
-        const expID = "ZgNOhrfaWdyb";
+        const expID = "4pF3OKeto82v";
               
         // intialize jsPsych
         var jsPsych = initJsPsych({
-//             on_finish: function(){
-//                 window.location = "https://app.prolific.co/submissions/complete?cc=CYK03HRO"
-//             }
+            on_finish: function(){
+                window.location = "https://app.prolific.co/submissions/complete?cc=CYK03HRO"
+            }
+        });
+
+        
+        // const subject_id = jsPsych.randomization.randomID(10);
+        // jsPsych.data.addProperties({subject_id: subject_id});
+
+
+        // capture info from Prolific
+        var subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
+        var study_id = jsPsych.data.getURLVariable('STUDY_ID');
+        var session_id = jsPsych.data.getURLVariable('SESSION_ID');
+
+        jsPsych.data.addProperties({
+            subject_id: subject_id,
+            study_id: study_id,
+            session_id: session_id
         });
                 
         var timeline = [];
@@ -69,10 +83,6 @@
             }
         };
         timeline.push(screen_check);
-
-        const subject_id = jsPsych.randomization.randomID(10);
-        jsPsych.data.addProperties({subject_id: subject_id});
-
 
         // welcoming message
         var greeting = {
@@ -229,7 +239,7 @@
         };
         
         async function createExperiment(){
-            const condition = await jsPsychPipe.getCondition("ZgNOhrfaWdyb");
+            const condition = await jsPsychPipe.getCondition(expID);
                          
 
             //linear condition 'if'
@@ -260,7 +270,7 @@
                 
             on_finish: function(data){
                 const filename = `${subject_id}_${jsPsych.getProgress().current_trial_global}_image.png`;
-                jsPsychPipe.saveBase64Data("ZgNOhrfaWdyb",  filename, data.png);
+                jsPsychPipe.saveBase64Data(expID,  filename, data.png);
                 // delete the base64 data to save space. store the filename instead.
                 data.png = filename;
             },
@@ -322,7 +332,7 @@
                                 
             on_finish: function(data){
                 const filename = `${subject_id}_${jsPsych.getProgress().current_trial_global}_image.png`;
-                jsPsychPipe.saveBase64Data("ZgNOhrfaWdyb",  filename, data.png);
+                jsPsychPipe.saveBase64Data(expID,  filename, data.png);
                 // delete the base64 data to save space. store the filename instead.
                 data.png = filename;
             },
@@ -499,7 +509,7 @@
 
             }
 
-        }
+        };
 
 
         //diverse condition 'if'
@@ -529,7 +539,7 @@
                                 
             on_finish: function(data){
                 const filename = `${subject_id}_${jsPsych.getProgress().current_trial_global}_image.png`;
-                jsPsychPipe.saveBase64Data("ZgNOhrfaWdyb",  filename, data.png);
+                jsPsychPipe.saveBase64Data(expID,  filename, data.png);
                 // delete the base64 data to save space. store the filename instead.
                 data.png = filename;
             },
@@ -590,7 +600,7 @@
                                 
             on_finish: function(data){
                 const filename = `${subject_id}_${jsPsych.getProgress().current_trial_global}_image.png`;
-                jsPsychPipe.saveBase64Data("ZgNOhrfaWdyb",  filename, data.png);
+                jsPsychPipe.saveBase64Data(expID,  filename, data.png);
                 // delete the base64 data to save space. store the filename instead.
                 data.png = filename;
             },
@@ -758,10 +768,10 @@
 
             }
 
-        }
+        };
 
 
-        // between task message
+        // After the main two tasks message
         var tasks_finished = {
             type: jsPsychInstructions,
             pages: [
@@ -777,7 +787,7 @@
                 jsPsych.pluginAPI.clearAllTimeouts();
             },
 
-            };
+        };
         timeline.push(tasks_finished);
 
         //Author Recognition Test        
@@ -837,7 +847,7 @@
         timeline.push(ART);
 
             
-            //Collecting demographic information
+        //Collecting demographic information
         var demographic_info = {
             type: jsPsychSurvey,
             pages: [
@@ -900,6 +910,19 @@
                     },
                     {
                         type: 'multi-choice',
+                        prompt: "What is the highest level of education that you have completed?", 
+                        options: [
+                            'Less than high school degree','High school graduate (high school diploma or equivalent including GED',
+                            'Some college but no degree', 'Associate degree in college (2-year)',
+                            'Bachelors degree in college (4-year)', 'Masters degree',
+                            'Doctoral degree (e.g., PhD, MD, JD)'
+                        ],
+                        name: 'Highest_degree', 
+                        required: true,
+                    },
+
+                    {
+                        type: 'multi-choice',
                         prompt: "What is your dominant hand?",
                         options:[
                             'Right', 'Left', 'Ambidextrous (Equally well with both hands)'
@@ -928,7 +951,7 @@
                             'straight (heterosexual)','gay or lesbian (homosexual)', 'bisexual', 'queer',
                             'asexual', 'not listed or prefer not to respond' 
                         ],
-                        name: 'sexual orientation', 
+                        name: 'sexual_orientation', 
                         required: true,
                     },
                     {
@@ -944,17 +967,14 @@
                 ],
             ],
             title: 'Please enter the following information',
-            //button_label_next: 'Continue',
-            //button_label_back: 'Previous',
             button_label_finish: 'Submit',
-            //show_question_numbers: 'onPage'
         };
         timeline.push(demographic_info);
 
         var Exp_Done = {
             type: jsPsychHtmlKeyboardResponse,
             stimulus: "Please press Enter for your results to be saved. Do not close this window; you will be redirected to the Prolific website automatically to get your credit after we received your results."+
-            "<p> It may take one minute, or longer depending on your internet speed! <p> <b>Thank you for your participation :) </b>",
+            " It may take one minute, or longer depending on your internet speed! <p><b>Thank you for your participation :) </b>",
         };
         timeline.push(Exp_Done);
 
@@ -968,15 +988,8 @@
             data_string: ()=>jsPsych.data.get().csv()
         };
         timeline.push(save_data);
-
-        var Exp_Done = {
-            type: jsPsychHtmlKeyboardResponse,
-            stimulus: "Thank you! We received your data! You can now close this window.",
-        };
-        timeline.push(Exp_Done);
-
-
         jsPsych.run(timeline);
+ 
         }
         
         createExperiment();
