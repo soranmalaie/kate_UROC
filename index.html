@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Soran_FYP</title>
+        <title>FYP_Extended</title>
         <script src="https://unpkg.com/jspsych@7.3.1"></script>
         <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
         <script src="https://unpkg.com/@jspsych/plugin-sketchpad@1.0.3"></script>
@@ -20,35 +20,42 @@
     <script>
 
         // experiment ID from DataPipe
-        const expID = "4pF3OKeto82v";
+        const expID = "mpvQSL8NChQb";
               
         // intialize jsPsych
         var jsPsych = initJsPsych({
-            on_finish: function(){
-                window.location = "https://app.prolific.co/submissions/complete?cc=CYK03HRO"
+            on_finish: function() {
+                jsPsych.data.displayData();
+
             }
         });
 
-        
+        //To run the experiment without Prolific website 
         // const subject_id = jsPsych.randomization.randomID(10);
         // jsPsych.data.addProperties({subject_id: subject_id});
 
-
+        //To run the experiment from Prolific website 
         // capture info from Prolific
-        var subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
-        var study_id = jsPsych.data.getURLVariable('STUDY_ID');
-        var session_id = jsPsych.data.getURLVariable('SESSION_ID');
 
-        jsPsych.data.addProperties({
-            subject_id: subject_id,
-            study_id: study_id,
-            session_id: session_id
-        });
-                
+        // var subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
+        // var study_id = jsPsych.data.getURLVariable('STUDY_ID');
+        // var session_id = jsPsych.data.getURLVariable('SESSION_ID');
+        // jsPsych.data.addProperties({
+        //     subject_id: subject_id,
+        //     study_id: study_id,
+        //     session_id: session_id
+        // });
+        
+        
+        const subject_id = jsPsych.randomization.randomID(10);
+        jsPsych.data.addProperties({subject_id: subject_id});
+
+
+
         var timeline = [];
 
-        var tr_duration = 30000;
-        var venice_path = ['Venice_Map.png'];
+        var tr_duration = 3000;
+        var venice_path = ['Maze_Map.png'];
        
         //preloading the Venice map
         var preload = {
@@ -392,15 +399,14 @@
                     'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
                     'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
                     'searching for more words.',
-                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
+                    '<p style="font-size:24px;">Before each trial, you will be shown the following map in which you need to deliver some items from the starting points ' + 
+                    '(the red dots on the map) to a location. To do this, simply draw five lines, one by one, from the red dots to the location that will be mentioned above the map;'+
                     ' To draw a line hold <b>Ctrl</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>continue</b> button ' +
+                    'You should draw the lines oonly through the roads and without crossing over the bulidings, and then click on the <b>continue</b> button ' +
                     'to see the next trial.'+
-                    'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
                     ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button. You will see a video as an example  of how to deliver the items.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
+                    '<img src="Maze_Map.png"></img>'
                 ],
                 show_clickable_nav: true
             };
@@ -423,16 +429,15 @@
                     'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
                     ' Please type your solution and hit Enter right away.',
                     '<p style="font-size:24px;">Like the previous task, before each trial, you will be shown the following map'+
-                    ' in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one,'+
-                    ' from the red dot to the location that will be mentioned above the map;'+
+                    ' in which you need to deliver some items from the starting points ' + 
+                    '(the red dots on the map) to a location. To do this, simply draw five lines, one by one,'+
+                    ' from the red dots to the location that will be mentioned above the map;'+
                     ' To draw a line hold <b>Ctrl</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the bulidings,'+
+                    'You should draw the lines only through the roads and without crossing over the bulidings,'+
                     ' and then click on the <b>Continue</b> button to see the next trial.'+
-                    'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
                     ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
+                    '<img src="Maze_Map.png"></img>'
                 ],
             show_clickable_nav: true
             };
@@ -458,16 +463,15 @@
                     'For each set of three words, you will have up to <b>30 seconds</b> to come up with your solution.'+
                     ' Please type your solution and hit Enter right away.',
                     '<p style="font-size:24px;">Before each trial, you will be shown the following map'+
-                    ' in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one,'+
-                    ' from the red dot to the location that will be mentioned above the map;'+
+                    ' in which you need to deliver some items from the starting points ' + 
+                    '(the red dots on the map) to a location. To do this, simply draw five lines, one by one,'+
+                    ' from the red dots to the location that will be mentioned above the map;'+
                     ' To draw a line hold <b>Ctrl</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the bulidings,'+
+                    'You should draw the lines only through the roads and without crossing over the bulidings,'+
                     ' and then click on the <b>Continue</b> button to see the next trial.'+
-                    'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
                     ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
+                    '<img src="Maze_Map.png"></img>'
                 ],
             show_clickable_nav: true
 
@@ -492,15 +496,14 @@
                     'love, lover, lovely and loved will be counted just once. Keep in mind that wrong words do not ' + 
                     'have negative points; so, if you doubt whether a word is acceptable, just type it in, hit Enter to be saved instantly, and continue ' +
                     'searching for more words.',
-                    '<p style="font-size:24px;">Like the previous task, before each trial, you will be shown the following map in which you need to deliver some items from the starting point ' + 
-                    '(the red dot on the map) to a location. To do this, simply draw five lines, one by one, from the red dot to the location that will be mentioned above the map;'+
+                    '<p style="font-size:24px;">Like the previous task, before each trial, you will be shown the following map in which you need to deliver some items from the starting points ' + 
+                    '(the red dots on the map) to a location. To do this, simply draw five lines, one by one, from the red dots to the location that will be mentioned above the map;'+
                     ' To draw a line hold <b>Ctrl</b> button on your keyboard and move your mouse cursor. ' + 
                     'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>continue</b> button ' +
                     'to see the next trial.'+
-                    'You should deliver each item along the same route — in other words, you should draw the same path from the red starting dot to the final destination.'+
                     ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
+                    '<img src="Maze_Map.png"></img>'
                 ],
                 show_clickable_nav: true      
             };
@@ -662,10 +665,10 @@
                     '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
                     ' from the red dot to the locations that will be mentioned above the map;'+
                     ' To draw a line hold <b>Ctrl</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
+                    'You should draw the lines only through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
                     'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
+                    '<img src="Maze_Map.png"></img>'
                 ],
             show_clickable_nav: true                  
             };
@@ -691,11 +694,11 @@
                     '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
                     ' from the red dot to the locations that will be mentioned above the map;'+
                     ' To draw a line hold <b>Ctrl</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the bulidings,'+
+                    'You should draw the lines only through the roads and without crossing over the bulidings,'+
                     ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
                     ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
+                    '<img src="Maze_Map.png"></img>'
                 ],
             show_clickable_nav: true                      
             };
@@ -723,11 +726,11 @@
                     '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
                     ' from the red dot to the locations that will be mentioned above the map;'+
                     ' To draw a line hold <b>Ctrl</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the bulidings,'+
+                    'You should draw the lines only through the roads and without crossing over the bulidings,'+
                     ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
                     ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
+                    '<img src="Maze_Map.png"></img>'
                 ],
             show_clickable_nav: true                      
             };
@@ -755,10 +758,10 @@
                     '(the red dot on the map) to different locations. To do this, simply draw five lines, one by one,'+
                     ' from the red dot to the locations that will be mentioned above the map;'+
                     ' To draw a line hold <b>Ctrl</b> button on your keyboard and move your mouse cursor. ' + 
-                    'You should draw the lines through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
+                    'You should draw the lines only through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
                     'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="Venice_Map.png"></img>'
+                    '<img src="Maze_Map.png"></img>'
                 ],
             show_clickable_nav: true                  
             };
