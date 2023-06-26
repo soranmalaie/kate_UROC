@@ -55,14 +55,16 @@
         var timeline = [];
 
         var tr_duration = 3000;
-        var venice_path = ['Maze_Map.png'];
+        var Maze_Linear = ['Maze_Map_Linear.png'];
+        var Maze_Diverse = ['Maze_Map_Diverse'];
        
         //preloading the Venice map
-        var preload = {
-            type: jsPsychPreload,
-            images: venice_path,
-
-        };
+        //var preload = {
+         //   type: jsPsychPreload,
+          //  images: venice_path,
+        //    
+//
+//       };
         timeline.push(preload);
 
         // Change to full screen mode
@@ -261,7 +263,7 @@
                 return Venice1_prompt_linear[Venice1_counter]
             },
             prompt_location:'abovecanvas',
-            background_image: venice_path,
+            background_image: Maze_Linear,
             key_to_draw: 'Control',
             finished_button_label: 'Continue',
             canvas_width: 1080,
@@ -324,7 +326,7 @@
             },
 
             prompt_location:'abovecanvas',
-            background_image: venice_path,
+            background_image: Maze_Linear,
             key_to_draw: 'Control',
             finished_button_label: 'Continue',
             canvas_width: 1080,
@@ -406,7 +408,7 @@
                     'to see the next trial.'+
                     ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button. You will see a video as an example  of how to deliver the items.' + '<br>' +
-                    '<img src="Maze_Map.png"></img>'
+                    '<img src="Maze_Map_Linear.png"></img>'
                 ],
                 show_clickable_nav: true
             };
@@ -437,7 +439,7 @@
                     ' and then click on the <b>Continue</b> button to see the next trial.'+
                     ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="Maze_Map.png"></img>'
+                    '<img src="Maze_Map_Linear.png"></img>'
                 ],
             show_clickable_nav: true
             };
@@ -471,7 +473,7 @@
                     ' and then click on the <b>Continue</b> button to see the next trial.'+
                     ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                    '<img src="Maze_Map.png"></img>'
+                    '<img src="Maze_Map_Linear.png"></img>'
                 ],
             show_clickable_nav: true
 
@@ -503,7 +505,7 @@
                     'to see the next trial.'+
                     ' Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="Maze_Map.png"></img>'
+                    '<img src="Maze_Map_Linear.png"></img>'
                 ],
                 show_clickable_nav: true      
             };
@@ -526,7 +528,7 @@
                 return Venice1_prompt_diverse[Venice1_counter]
             },
             prompt_location:'abovecanvas',
-            background_image: venice_path,
+            background_image: Maze_Diverse,
             key_to_draw: 'Control',
             finished_button_label: 'Continue',
             canvas_width: 1080,
@@ -588,7 +590,7 @@
                 return Venice1_prompt_diverse[Venice2_counter]
             },
             prompt_location:'abovecanvas',
-            background_image: venice_path,
+            background_image: Maze_LDiverse,
             key_to_draw: 'Control',
             finished_button_label: 'Continue',
             canvas_width: 1080,
@@ -668,7 +670,7 @@
                     'You should draw the lines only through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
                     'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                    '<img src="Maze_Map.png"></img>'
+                    '<img src="Maze_Map_Diverse.png"></img>'
                 ],
             show_clickable_nav: true                  
             };
@@ -698,7 +700,7 @@
                     ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
                     ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="Maze_Map.png"></img>'
+                    '<img src="Maze_Map_Diverse.png"></img>'
                 ],
             show_clickable_nav: true                      
             };
@@ -730,7 +732,7 @@
                     ' and then click on the <b>Continue</b> button to see the next trial. Do not rush in'+
                     ' delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button. You will see a video as an example of how to deliver the items.' + '<br>' +
-                    '<img src="Maze_Map.png"></img>'
+                    '<img src="Maze_Map_Diverse.png"></img>'
                 ],
             show_clickable_nav: true                      
             };
@@ -761,7 +763,7 @@
                     'You should draw the lines only through the roads and without crossing over the bulidings, and then click on the <b>Continue</b> button ' +
                     'to see the next trial. Do not rush in delivering the items as your 30 seconds time to complete a trial will begin only after ' + 
                     'pushing the Continue button.' + '<br>' +
-                    '<img src="Maze_Map.png"></img>'
+                    '<img src="Maze_Map_Diverse.png"></img>'
                 ],
             show_clickable_nav: true                  
             };
