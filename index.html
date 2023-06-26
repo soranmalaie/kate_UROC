@@ -56,16 +56,16 @@
 
         var tr_duration = 3000;
         var Maze_Linear = ['Maze_Map_Linear.png'];
-        var Maze_Diverse = ['Maze_Map_Diverse'];
+        var Maze_Diverse = ['Maze_Map_Diverse.png'];
        
-        //preloading the Venice map
-        //var preload = {
-         //   type: jsPsychPreload,
-          //  images: venice_path,
-        //    
-//
-//       };
-        // timeline.push(preload);
+        //preloading the map linear
+        var preload = {
+            type: jsPsychPreload,
+            images: [Maze_Linear, Maze_Diverse],
+            
+
+            };
+        timeline.push(preload);
 
         // Change to full screen mode
         var run_fullscreen = {
