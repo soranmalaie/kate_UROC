@@ -998,7 +998,7 @@
 
         var Exp_Done = {
             type: jsPsychHtmlKeyboardResponse,
-            stimulus: "Please press Enter for your results to be saved. Do not close this window; you will be redirected to the Prolific website automatically to get your credit after we received your results."+
+            stimulus: "Please press Enter for your results to be saved. Do not close this window; you will be informed when we receive your results."+
             " It may take one minute, or longer depending on your internet speed! <p><b>Thank you for your participation :) </b>",
         };
         timeline.push(Exp_Done);
@@ -1013,6 +1013,14 @@
             data_string: ()=>jsPsych.data.get().csv()
         };
         timeline.push(save_data);
+
+        var Exp_finish = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: "We received your results! You can now close this tab."+
+            "<p><b>Thank you for your participation :) </b>",
+        };
+        timeline.push(Exp_finish);
+            
         jsPsych.run(timeline);
  
         }
